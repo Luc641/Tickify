@@ -52,7 +52,8 @@ create table TICKET(
 	foreign key (EventNr) references EVENTS(EventNr),
 	foreign key (OrderNumber) references ORDERS(OrderNumber)
 );
-
+ALTER TABLE EVENT
+ALTER COLUMN Desctription SET NOT NULL;
 alter table CUSTOMER
 	
 
