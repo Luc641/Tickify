@@ -35,7 +35,7 @@ create table EVENTS(
 	Category varchar(30),
 	Description varchar(6000),
 	E_Name varchar (30),
-	E_Location varchar (100),
+	E_Location varchar (150),
 	E_Date date,
 	O_Mail varchar(30),
 	foreign key (O_Mail) references ORGANIZER(O_Mail)
