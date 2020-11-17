@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    
+    margin: auto;
+    padding: 10px;
+    
+    
+}
+header{
+    background-color: rgb(15, 64, 199);
+    height: 100px;
+    position: relative;
+}
+header .logo{
+    text-align: center;
+}
+.topnav{
+    list-style: none;
+    margin: 30px;
+}
+.topnav li{
+    display: inline-block;
+}
+.topnav li a{
+    color: rgb(5, 5, 255);
+    padding: 5px;
+    align-items: stretch;
+}
+section ol {
+    display: inline-block;
+}
+footer{
+    background-color: rgb(42, 1, 58);
+    
+}
+footer table{
+    width: 100%;
+    position: relative;
+    
+}
+footer tr{
+    text-align: center;
+    height: 65px;
+}
