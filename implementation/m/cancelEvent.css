@@ -66,15 +66,27 @@ li a:hover:not(.active) {
   left: 60%;
   margin: -100px 0 0 -150px;
 }
-p {
+#cancel {
     font-size: 13px;
 }
 .mainsec {
   position: absolute;
-  width: 300px;
+  width: 100px;
   height: 200px;
   z-index: 15;
   top: 36%;
   left: 90%;
   margin: -100px 0 0 -150px;
+}
+.mainsec .chanbut {
+  float: right;
+  padding: 2px 6px;
+  margin-top: 12px;
+  
+  background: #ddd;
+  font-size: 13px;
+  cursor: pointer;
+}
+.mainsec .chanbut:hover {
+  background: #ccc;
 }
