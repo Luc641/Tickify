@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>My Events</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta>
+	</head>
+	<body>
+	    
+        <div class="topnav">
+            <a class="active" href="#home"><i class="fa fa-home"></i></a>
+            <a href="#categories"><i class="fa fa-bars"></i>  Categories</a>
+            <div class="search-container">
+                <form action="#" method="GET">
+                    <input type="text" placeholder="What are you looking for?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div style="padding-left:16px">
+            <h2>My events</h2>
+            <p>
+        </div>
+        <ul>
+            <li><a href="#personalInformation">Personal information</a></li>
+            <li><a class="active" href="#myEvents">My events</a></li>
+            <li><a href="#cancelEvent">Cancel Event</a></li>
+            <li><a href="#myStatistics">My Statistics</a></li>
+        </ul> 
+        <div class="main">
+            <h3>Name</h3>
+            <p> Event Name </p>
+            <p>Another event name</p>
+            <p>Some event name</p>
+            <p>event name event name</p>
+            <p>more event name</p>
+            <p> Event other Name </p>
+            <p>Another some event name</p>
+            <p>Some other event name</p>
+            <p>event event name</p>
+            <p>some more event name</p>
+        </div>
+        <div class="mainsec">
+            <h3>Date</h3>
+            <p> Event date </p>
+            <p>Another date</p>
+            <p>Some datee</p>
+            <p>just date</p>
+            <p>more date</p>
+            <p>other date</p>
+            <p>date date</p>
+            <p>date date date</p>
+            <p>edate edate</p>
+            <p>date</p>
+        </div>
+		
+	</body>
+</html>
