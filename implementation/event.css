@@ -1,0 +1,253 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 Nov 2020, 12:20:22
+    Author     : joel
+*/
+
+
+/* Websites for dividing screen into 2 parts
+   https://css-tricks.com/snippets/css/clear-fix/
+   https://css-tricks.com/left-and-right/  */
+
+/* Website for positioning blocks
+   https://www.w3schools.com/cssref/pr_pos_right.asp (also left property)*/
+
+/* Format header section of html */
+header {
+    background-color: #270A5E; /* Background color of th erectangle */
+    width: 98%; /* Rectangle width - 98% to respect footer margins */
+    height: 150px; /* Rectangle height - per points more accurate height */
+    border: 5px solid #8B219E;
+    /* center the header */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Format the paragraph inside of the header */
+header p {
+    color: #FAFAFA; /* Color of the text */
+    font-family: 'Source Sans Pro', sans-serif;  /* Type of font - it has been declared in html file */
+    text-align: left; /* Where is the text found */
+    font-size: 11pt; /* Size of the font */
+    margin-left: 35px; /* margin with left of the header screen */
+    margin-bottom: 6px; /* margin with the title inside of the header */
+    margin-top: 50px; /* margin with the top of the header rectangle */
+}
+
+/* Format the title inside of the header -- it is relate to the format of the paragraph above*/
+header h1 {
+    color: #FAFAFA; /* Color of the text */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    text-align: left; /* Where is the text found */
+    margin-top: 6px; /* margin with the paragraph on top inside the header */
+    margin-left: 35px; /* margin with left of the header screen */
+    font-size: 30pt; /* Size of the font */
+}
+
+div#eventDetails {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-top: 1px solid black;
+    min-height: 350px;
+    max-width: 95%;
+}
+
+div#eventGraph {
+    float: left; /*Locate the section on the left*/
+    width: 50%; /*Stablish the section to 50% of footer width*/
+    height: 100%; /*Stablish heigth to 100% of footer window*/
+}
+
+div#eventGraph img {
+    width: 90%;
+    height: 80%;
+    min-height: 100pt;
+    min-width: 100pt;
+    display: block;
+    display: block; /*Define the imagine is a whole pack*/
+    margin-left: auto; /*Make sure image is centered - css does the calculation*/
+    margin-right: 10%; /*Make sure image is centered - css does the calculation*/
+    margin-top: 20pt;
+
+}
+
+div#eventDescription {
+    float: left; /*Locate the section on the left*/
+    width: 50%; /*Stablish the section to 50% of footer width*/
+    height: 100%; /*Stablish heigth to 100% of footer window*/
+}
+
+div#eventDescription h1 {
+    margin-left: 2pt;
+    font-size: 18pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+}
+
+div#eventDescription p {
+    margin-right: 2pt;
+    margin-left: 3pt;
+    font-size: 12pt; /* Size of the font */
+    text-align: justify; /* Where is the text found */
+    font-family: 'Source Sans Pro', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.7;
+}
+
+.eventTicket {
+    clear: both;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 95%;
+    min-height: 200px;
+    border-top: 1pt solid;
+}
+
+.eventTicket h1 {
+    margin-left: 15pt;
+    font-size: 18pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+}
+
+.eventDate {
+    margin-left: 15pt;
+    float: left; /*Locate the section on the left*/
+    width: 10%; /*Stablish the section to 50% of footer width*/
+    height: 125px; /*Stablish heigth to 100% of footer window*/
+    border-top: 1pt solid;
+    border-bottom: 1pt solid;
+    border-left: 1pt solid;
+}
+
+.eventDate p {
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: center; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.5;
+    margin-bottom: 1.5pt;
+}
+
+.eventLocation {
+    float: left; /*Locate the section on the left*/
+    width: 50%; /*Stablish the section to 50% of footer width*/
+    height: 125px; /*Stablish heigth to 100% of footer window*/
+    border-top: 1pt solid;
+    border-bottom: 1pt solid;
+}
+
+.eventLocation p {
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.5;
+    margin-bottom: 1.5pt;
+}
+
+.eventLocation p#eventPlace {
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 1.5pt;
+    margin-top: 1.5pt;
+}  
+
+/*https://www.javatpoint.com/how-to-center-a-button-in-css*/
+
+.goToTickets {
+    float: left; /*Locate the section on the left*/
+    width: 24%; /*Stablish the section to 50% of footer width*/
+    height: 125px; /*Stablish heigth to 100% of footer window*/
+    border-top: 1pt solid;
+    border-bottom: 1pt solid;
+    border-right: 1pt solid;
+    display: grid;
+}
+
+.ticketbtn {
+    width: 100pt;
+    height: 30pt;
+    font-size: 14px;
+    font-family: "Source Sans", sans-serif;
+    font-weight: bold;
+    margin: auto;
+    
+}
+
+/*Function to modify the footer*/
+footer {
+    clear: both;
+    width: 100%; /*Total of window width*/
+    height: 200px; /*Set height to 200 pixels in total*/
+}
+
+/*Function to create first half of the footer located on the left*/
+footer div#leftFooter {
+    background-color: #ff9e2c;
+    float: left; /*Locate the section on the left*/
+    width: 50%; /*Stablish the section to 50% of footer width*/
+    height: 100%; /*Stablish heigth to 100% of footer window*/
+    border-bottom: 1px solid; 
+    border-top: 1px solid;
+}
+
+/*Function to define header of left footer*/
+footer div#leftFooter h1 {
+    margin-left: 15px;
+    font-size: 14pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.5;
+    margin-bottom: 1.5pt;
+}
+
+/*Function to define how the list in left footer is displayed*/
+.footer div#leftFooter ul {
+    margin-left: 20px;
+    margin-right: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.5;
+}
+
+/*Function to create the other half of the footer located on the right*/
+/*Similar to footer_left*/
+footer div#rightFooter{
+    background-color: #b6701e;
+    float: left; /*Attach section to the left after the previous one*/
+    width: 50%; /*Stablish section to 50% (half page))*/
+    height:100%; /*Stablish heigth to 100% of footer window*/
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+
+/*Function to define header of right footer*/
+footer div#rightFooter h1 {
+    margin-left: 15px;
+    font-size: 14pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.5;
+    margin-bottom: 10pt;
+}
+
+/*Function to define how image inside right footer is displayed*/
+footer div#rightFooter img {
+    display: block; /*Define the imagine is a whole pack*/
+    margin-left: auto; /*Make sure image is centered - css does the calculation*/
+    margin-right: auto; /*Make sure image is centered - css does the calculation*/
+    width: 65%; /*Increase image width with window size*/
+    height: 50%; /*Increase image heigth with window size*/
+}
