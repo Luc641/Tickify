@@ -1,0 +1,209 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4 Nov 2020, 11:36:09
+    Author     : joel
+*/
+
+body {
+    margin: 0 auto;
+}
+
+.navigation { 
+    background-color: #8B219E ;
+    min-height: 60px;
+    height: auto;
+    width: 100%;
+}
+
+.navContainer {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1110px;
+}
+
+.navContainer a#home {
+    display: inline-block;
+    float: left;
+    width: 5%;
+    height: 100%;
+    margin-top: 3px;
+}
+
+.navContainer div#categories {
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-left: 60px;
+    margin-top: 0;
+    width: 20%;
+    min-height: 60px;
+}
+
+.dropdownbtn {
+    display: block;
+    min-height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    background-color: #8B219E;
+    border: none;
+    font-size: 16pt;
+    cursor: pointer;
+}
+
+.dropdownbtn:hover {
+    background-color: #5f94dc;
+    color: #000000;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+}
+
+.dropdown-content a:hover {
+    background-color: #5f94dc;
+    color: #000000;
+}
+
+.navContainer div#categories:hover .dropdownbtn {
+    background-color: #5f94dc;
+    color: #000000;
+}
+
+.navContainer div#categories:hover .dropdown-content {
+    display: block;
+}
+
+.navContainer input#search {
+    display: inline-block;
+    float: left;
+    margin: 12px 0 0 20px;
+    width: 40%;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 12pt;
+    text-indent: 5pt;
+}
+
+.navContainer input#searchbtn {
+    display: inline-block;
+    float: left;
+    margin-top: -29px;
+    margin-left: 5px;
+    margin-right: 0;
+    width: 5%;
+    height: 40px;
+    border: 1pt solid;
+    padding:0;
+    cursor: pointer;
+}
+
+.navContainer div#myProfile {
+    display: inline-block;
+    float: right;
+    width: 7.5%;
+    height: 100%;
+    margin-left: 30px;
+    margin-top: -37px;
+}
+
+.myProfilebtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 61px;
+}
+
+.profileOptions {
+    display: none;
+    margin: 0 0 0 -260px;
+    padding-top: 10px;
+    height: 280px;
+    width: 350px;
+
+}
+
+.profileOptions form {
+    width: 350px;
+}
+
+.profileOptions form fieldset legend {
+    font-size: 14pt;
+    background-color: white;
+}
+
+/*.profileOptions form p {
+    
+}*/
+
+.profileOptions form fieldset p label {
+    font-size: 14pt;
+}
+
+.profileOptions form fieldset p input {
+    margin-left: 10px;
+    width: 200px;
+    height: 25px;
+    font-size: 12pt;
+}
+
+.profileOptions form fieldset p input#password {
+    margin-left: 13px;
+    width: 200px;
+    height: 25px;
+    font-size: 12pt;
+}
+
+.profileOptions form fieldset button#logIn {
+    width: 75px;
+    height: 30px;
+    margin-left: 75px;
+    margin-right: auto;
+}
+
+.profileOptions form fieldset button#register {
+    width: 75px;
+    height: 30px;
+    margin-left: 25px;
+    margin-right: auto;
+}
+
+.profileOptions a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.1);
+}
+
+.profileOptions a:hover {
+    background-color: #5f94dc;
+    color: #000000;
+}
+
+.navContainer div#myProfile:hover .profileOptions {
+    display: block;
+}
+
+
+
+
+
