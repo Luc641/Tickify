@@ -6,7 +6,7 @@ body {
 .topnav {
   width: 100%;
   height: 52px;
-  background-color: #e9e9e9;
+  background-color: #b20099;
 }
 .topnav a {
   float: left;
@@ -18,7 +18,7 @@ body {
   font-size: 17px;
 }
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #ba528f;
   color: black;
 }
 
@@ -31,20 +31,22 @@ body {
   font-size: 17px;
   border: none;
   width: 210px;
+  color:#201023;
+  background-color:#dec6df;
 }
 .topnav .search-container button {
   float: right;
   padding: 6px 10px;
   margin-top: 8px;
   margin-right: 16px;
-  background: #ddd;
+  background: #873677;
 
   font-size: 17px;
   border: none;
   cursor: pointer;
 }
 .topnav .search-container button:hover {
-  background: #ccc;
+  background: #ba528f;
 }
 
 .topnav  .ctgrs {
@@ -102,4 +104,93 @@ body {
 } 
 .thanku {
     font-size: 20px;
+}
+
+.topnav .myProfile {
+    position: relative;
+    float: right;
+   display:inline;
+    
+}
+
+.topnav .myprofile button {
+    float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #873677;
+
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.topnav .myprofile button:hover{
+    color:#ba528f;
+}
+.topnav .myProfile .profileOptions {
+    display: none;
+    margin: 0 0 0 -260px;
+    padding-top: 10px;
+    height: 280px;
+    width: 350px;
+
+}
+
+.topnav .myProfile .profileOptions form {
+    width: 250px;
+}
+
+.topnav .myProfile .profileOptions form fieldset legend {
+    font-size: 14pt;
+    background-color: #dec6df;
+}
+
+
+.topnav .myProfile .profileOptions form fieldset p label {
+    font-size: 14pt;
+}
+
+.topnav .myProfile .profileOptions form fieldset p input {
+    
+    width: 200px;
+    height: 25px;
+    font-size: 12pt;
+}
+
+#password {
+    margin-left: 13px;
+    width: 200px;
+    height: 25px;
+    font-size: 12pt;
+}
+
+#logIn {
+    width: 75px;
+    height: 30px;
+    margin-left: 75px;
+    margin-right: auto;
+}
+
+#register {
+    width: 75px;
+    height: 30px;
+    margin-left: 25px;
+    margin-right: auto;
+}
+
+.topnav .myProfile .profileOptions a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.1);
+}
+
+.topnav .myProfile .profileOptions a:hover {
+    background-color: #5f94dc;
+    color: #000000;
+}
+
+.topnav .myProfile:hover .profileOptions {
+    display: block;
 }
