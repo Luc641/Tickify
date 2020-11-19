@@ -18,16 +18,15 @@ aside {
   }
   footer {
     clear: both;
-      background-color:  #3475ca;
+    background-color:  #3475ca;
   }
 
   nav#nav_bar{          
     overflow: hidden;
-    background-color: #3475ca;
-    height: 60px;
+    background-color: #3475ca;    
     margin-top: 1em;
     margin-bottom: 4em;
-    text-align: center;
+    text-align: right;
   }
   nav#nav_bar a:hover{
     background-color: #a3c1e9;
@@ -59,6 +58,8 @@ aside {
     height: 25px;
 }
   .search-container {
+    float: middle;
+    text-align: center;
     border: none;  
     font-size: 25px;
   }
@@ -67,14 +68,12 @@ aside {
   }
 
   #categories{
-      margin-right: 700px;
+      margin-right: 20px;
   }
-  #home_button {
-      margin-right: 150px
-  }
+
   #profile_button {
-      margin-left: 100px;
-      margin-right: 200px;
+      margin-left: 50px;
+      margin-right: 180px;
   }
   li {
     display: inline-block;        

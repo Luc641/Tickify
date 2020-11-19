@@ -19,8 +19,20 @@
                 </li>
                 
 
-                <li>
-                    <button><a class="categories" href="#"><img src="categories.png" width="25" height="25" alt=""></a></button>
+                <li id="categories">
+                    <div class="dropdown">
+                        <button class="dropbtn" ><a class="categories" href="#"><img src="categories1.png" height="25" width="25"></a></i></button>
+                        <div class="dropdown-content">
+                            <a href="#search-theatre">Theatre</a>
+                            <a href="#search-musicals">Musicals</a>
+                            <a href="#search-festivals">Festivals</a>
+                            <a href="#search-Concerts">Concerts</a>
+                            <a href="#search-sports">Sports</a>
+                            <a href="#search-family">Family</a>
+                            <a href="#search-expositions">Expositions</a>
+                        </div>
+                    </div> 
+                    
                 </li>
                 <li>
                     <div class="searchbar">
@@ -29,9 +41,20 @@
                     </div>
                 </li>
                 
-                <li>
+                <li id="profile-button">
                     <div class=" profile">
-                        <button><a href="#"><img src="profile.png" height="25px" alt=""></a></button>
+                        
+                        <div class="dropdown">
+                            <button><a href="#"><img src="profile.png" height="25px" alt=""></a></button>
+                            
+                            <div class="dropdown-content">
+                                <br>
+                                E-Mail <input type="text" id="email"><br><br>
+                                Password <input type="password" id="password"><br><br>
+                                <button type="submit">Login</button>                                                          
+                                <button> <a href="#">Register</a></button>  
+                            </div>
+                        </div> 
                         
                     </div>
             </li>
