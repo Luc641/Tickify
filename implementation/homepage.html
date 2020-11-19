@@ -8,24 +8,39 @@
 </head>
 <body>
     <header>
-        <div class="wrapper">
+        
             
             
             <ul class="topnav">
                 <li>
                     <div class="logo">
-                        <a href="homepage.html"><img src="home.png" height="30px" alt=""></a>
+                        <a href="homepage.html"><img src="home.png"alt=""></a>
                     </div>
                 </li>
                 
 
                 <li>
-                    <button><a class="categories" href="#"><img src="categories1.png" width="25" height="25" alt=""></a></button>
+                    <div class="categories-dropdown">
+                        <button id="button"></button><img src="categories.png"  alt=""></button>
+                        <div class="cats-content">
+                            <p>Theatres</p>
+                            <p>Musicals</p>
+                            <p>Festivals</p>
+                            <p>Concerts</p>
+                            <p>Sports</p>
+                            <p>Family</p>
+                            <p>Expositions</p>
+
+                        </div>
+                    </div>
+                    
                 </li>
                 <li>
                     <div class="searchbar">
-                    <input type="text" placeholder="S e a r c h . . .">
-                    <a href="search_event.html"><input type="image" src="search.png" width="25" height="25px" alt="submit"></a>
+                        <input id="search" type="text" placeholder="S e a r c h . . .">                    
+                    
+                    
+                        <a href="search_event.html"><input id="lupe" type="image" src="search.png" width="25" height="25px" alt="submit"></a>
                     </div>
                 </li>
                 
@@ -35,7 +50,7 @@
                     </div>
             </li>
             </ul>
-        </div>
+        
     </header>
     <section class="events">
         <table border="1">
