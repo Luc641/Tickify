@@ -11,7 +11,7 @@ create table CUSTOMER (
 create table ORGANIZER (
 	O_Mail varchar(30) not null primary key,
 	O_Password varchar(30) not null,
-	O_Name varchar(50) not null
+	O_Name varchar(50) not null,
 	O_PhoneNr int not null,
 	O_Address varchar(100) not null
 );
@@ -54,13 +54,13 @@ create table TICKET(
 
 ALTER TABLE customer
 	ADD CONSTRAINT C_Email_Format CHECK (C_Mail LIKE '%@%.%'),
-	ADD CONSTRAINT C_PhoneNr_Format CHECK (C_PhoneNr LIKE '00%'),
+	ADD CONSTRAINT C_PhoneNr_Format CHECK (cast(C_PhoneNr as text) LIKE '00%'),
 	ADD CONSTRAINT C_Password_Format CHECK (LENGTH(C_Password) >= 8),
 	ADD CONSTRAINT C_Birthdate_check CHECK (C_Birthdate >= '1900-01-01' AND C_Birthdate < CURRENT_DATE);
 	
 ALTER TABLE organizer
 	ADD CONSTRAINT O_Email_Format CHECK (O_Mail LIKE '%@%.%'), 
-	ADD CONSTRAINT O_PhoneNr_Format CHECK (O_PhoneNr LIKE '00%'),
+	ADD CONSTRAINT O_PhoneNr_Format CHECK (cast(O_PhoneNr as text) LIKE '00%'),
 	ADD CONSTRAINT O_Password_Format CHECK (LENGTH(O_Password) >= 8);
 	
 ALTER TABLE administrator
