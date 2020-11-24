@@ -1,6 +1,6 @@
 insert into administrator
 	values
-		('admin@admin.com', '@Administrator1'),
+		('admin@admin.com', '@Administrator'),
 		('admin1@admin.com','@Administrator1');
 
 insert into customer
@@ -43,10 +43,21 @@ insert into events
 
 insert into orders
 	values
-		(1, '2020-10-10', 'PAID', 'MAESTRO', 'customer1@gmail.com'),
-		(2, '2020-10-20', 'PENDING', 'BANK TRANSFER', 'customer1@gmail.com'),
-		(3, '2020-01-01', 'NOT PAID', 'VISA', 'customer5@fontys.nl'),
-		(4, '1999-01-25', 'PAID', 'PAYPAL', 'customer4@fontys.nl');
+		(1, '2018-10-10 15:27:53', true , 'MAESTRO', 'customer1@gmail.com'),
+		(2, '2018-11-20 21:46:05', false, 'BANK TRANSFER', 'customer12@yahoo.com'),
+		(3, '2018-12-01 09:16:29', true, 'VISA', 'customer5@fontys.nl'),
+		(4, '2018-12-01 09:17:01', true, 'PAYPAL', 'customer10@outlook.com'),
+		(5, '2019-01-25 18:17:16', true, 'MASTERCARD', 'customer8@gmx.de'),
+		(6, '2019-01-27 17:55:51', true, 'PAYPAL', 'customer15@gmail.com'),
+		(7, '2019-03-01 03:19:27', false, 'BANK TRANSFER', 'customer10@outlook.com'),
+		(8, '2019-03-14 13:13:13', true, 'AMERICAN EXPRESS', 'customer7@web.de'),
+		(9, '2019-03-14 16:21:53', true, 'PAYPAL', 'customer8@gmx.de'),
+		(10, '2019-09-18 12:00:12', true, 'PAYPAL', 'customer4@fontys.nl'),
+		(11, '2019-09-19 20:37:42', false, 'BANK TRANSFER', 'customer2@hotmail.com'),
+		(12, '2019-10-05 07:59:24', true, 'VISA', 'customer4@fontys.nl'),
+		(13, '2019-10-21 11:11:44', true, 'MAESTRO', 'customer9@hotmail.com'),
+		(14, '2020-01-05 23:59:59', true, 'BANK TRANSFER', 'customer13@yahoo.com'),
+		(15, '2020-01-31 18:36:42', false, 'BANK TRANSFER', 'customer8@gmx.de');
 
 insert into ticket
 	values
