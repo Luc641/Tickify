@@ -22,10 +22,16 @@ values ('customer1@gmail.com', '@Customer1', true, 'john', '0031123456789', 'Ven
 
 insert into organizer
 	values
-		('organizer1@events.com', '+49111111111', '@Organizer1', 'venlo', 'samoni'),
-		('organizer2@events.com', '+31222222222', '@Organizer2', 'roermond', 'carlton'),
-		('organizer3@events.nl', '+31999999999', '@Organizer', 'my office', 'ticketing'),
-		('organizer4@events.nl', '+31888888888', '{Organizer4', 'world', 'name');
+		('rocknrollevents@gmail.com', 'mypassword', 'Rock and Roll Events', '00492399874', 'Amsterdam'),
+		('samoni@events.com', 'samoni123', 'Samoni', '0033738109', 'Venlo'),
+		('carlton@mail.com', 'creative_', 'Carlton', '003491885', 'Roermond'),
+		('ticketing@outlook.com', 'Tick-/_.', 'Ticketing', '0048192801', 'Frankfurt'),
+		('sport2@yahoo.com', 'sportingE', 'Sport 2', '007322910', 'Dresden'),
+		('rain0@gmail.com', 'k9j6ac61', 'Rain Festival', '00871827', 'London'),
+		('4hiphop@mail.com', '9simv1ma0', 'Four - HipHop Shows', '00658876', 'Utrecht'),
+		('monstert@hotmail.com', 'ha6ym8._', 'Monster Truck Events', '009265102', 'Rotterdam'),
+		('musi_call@yahoo.com', '12345pass', 'Musi-call', '0043105701', 'Cologne'),
+		('gorg_c@yandex.ru', '1a2b3c4d-/', 'Gorg Concerts', '0031019842', 'Moscow');
 
 insert into events
 	values
