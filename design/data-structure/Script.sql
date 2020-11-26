@@ -78,7 +78,7 @@ ALTER TABLE ticket
 	
 ALTER TABLE events
 	add constraint EventNr_value check (EventNr >= 0),
-	ADD CONSTRAINT Category_value CHECK (EventCategory IN ('CINEMA & THEATRE', 'CONCERTS AND FESTIVALS', 'SPORTS', 'FAMILY', 'EXPOSITIONS')),
+	ADD CONSTRAINT Category_value CHECK (EventCategory IN ('CINEMA & THEATRE', 'CONCERTS & FESTIVALS', 'SPORTS', 'FAMILY', 'EXPOSITIONS')),
 	ADD CONSTRAINT E_Date_value CHECK (E_date >= CURRENT_TIMESTAMP);
 	
 	
