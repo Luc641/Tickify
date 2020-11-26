@@ -32,7 +32,7 @@ create table ORDERS (
 
 create table EVENTS(
 	EventNr int not null primary key,
-	E_Name varchar (30) not null,
+	E_Name varchar (50) not null,
 	EventCategory varchar(30) not null,
 	Description varchar(6000),
 	E_Location varchar (150) not null,
