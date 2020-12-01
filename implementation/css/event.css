@@ -135,6 +135,15 @@ div#eventDescription p {
     margin-bottom: 1.5pt;
 }
 
+#eventTime{
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: center; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.5;
+    margin-bottom: 1.5pt;
+}
+
 .eventLocation {
     float: left; /*Locate the section on the left*/
     width: 50%; /*Stablish the section to 50% of footer width*/
@@ -161,7 +170,27 @@ div#eventDescription p {
     line-height: 1.5;
     margin-bottom: 1.5pt;
     margin-top: 1.5pt;
-}  
+}
+
+#eventPlace {
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 1.5pt;
+    margin-top: 1.5pt;
+}
+
+#eventInfo{
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    line-height: 1.5;
+    margin-bottom: 1.5pt;
+}
 
 /*https://www.javatpoint.com/how-to-center-a-button-in-css*/
 

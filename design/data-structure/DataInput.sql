@@ -79,4 +79,10 @@ INSERT INTO TICKET (ID, EventNumber, Price, TicketCategory, Order_Number) Values
 	(117, 4, 70.0, 'b', 13),
 	(118, 5, 80.0, 'a', 14),
 	(119, 4, 28.0, 'a', 14),
-	(120, 5, 22.0, 'd', 15);
+	(120, 5, 22.0, 'd', 15),
+	
+INSERT INTO TICKET (ID, EventNumber, Price, TicketCategory, Order_Number) Values
+	(121, 3, 59.0, 'c', null),	
+	(122, 3, 59.0, 'c', null),
+	(123, 3, 59.0, 'c', null),
+	(124, 3, 59.0, 'c', null);

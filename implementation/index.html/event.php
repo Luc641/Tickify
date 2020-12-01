@@ -1,28 +1,6 @@
 <!DOCTYPE html>
 
-<?php //from the Project slides
-
-    // Declare DBS connection parameters
-    $host = "prj1_postgres";
-    $port = "5432";
-    $db = "postgres";
-    $user = "postgres";
-    $pword = "mypassword";
-
-    // Create Data Source Name (DSN) 
-    $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$user;password=$pword";
-
-    try{ // if the connection doesn’t work do not exit but go to catch part $conn = new PDO($dsn);
-
-        // Connect to the defined PostgreSQL database & send connection message
-        $conn = new PDO($dsn);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    } catch (PDOException $e){ // report error message 
-        echo $e->getMessage(); 
-    }
-        
-?>
+<?php include 'databaseConnection.php';?>
 
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -40,13 +18,15 @@ and open the template in the editor.
     <body>
         
         <header>
-            
-            <p>Quick info of the event</p>
-            
+
             <?php
             
+                $eventNumber = 3;
+            
                 //Define the statement that is going to be executed
-                $stmt = $conn->prepare("SELECT E_Name FROM events WHERE EventNr = 2");
+                $stmt = $conn->prepare("SELECT E_Name, EventCategory, Description, E_Location, E_Date, filePath "
+                                        . "FROM events "
+                                        . "WHERE EventNr = $eventNumber");
 
                 //Execute the previous defined statement
                 $stmt->execute();
@@ -54,10 +34,17 @@ and open the template in the editor.
                 //
                 $result = $stmt->setFetchMode(PDO::FETCH_NUM);
 
-                $eventName = $stmt->fetch();
+                $event = $stmt->fetch();
                 
-                $eventName = $eventName[0];
+                $eventName = $event[0];
+                $eventCategory = $event[1];
+                $description = $event[2];
+                $eventLocation = $event[3];
+                $eventTime = $event[4];
+                $filePath = $event[5];
                 
+                
+                echo "<p> $eventCategory </p>";
                 echo "<h1> $eventName </h1>";
                 
             ?>
@@ -77,20 +64,7 @@ and open the template in the editor.
                 <h1>About the event</h1>
                 
                 <?php
-                
-                    //Define the statement that is going to be executed
-                    $stmt = $conn->prepare("SELECT Description FROM events WHERE EventNr = 2");
 
-                    //Execute the previous defined statement
-                    $stmt->execute();
-
-                    //
-                    $result = $stmt->setFetchMode(PDO::FETCH_NUM);
-
-                    $description = $stmt->fetch();
-                    
-                    $description = $description[0];
-                    
                     echo "<p> $description </p>";
                 
                 ?>
@@ -106,26 +80,17 @@ and open the template in the editor.
             <div class="eventDate">
                 
                 <?php
-                
-                    $stmt = $conn->prepare("SELECT E_Date FROM events WHERE EventNr = 2");
 
-                    //Execute the previous defined statement
-                    $stmt->execute();
-
-                    //
-                    $result = $stmt->setFetchMode(PDO::FETCH_NUM);
-
-                    $eventTime = $stmt->fetch();
-                
-                    // Los delimitadores pueden ser barra, punto o guión
-                    list($date, $time) = explode(' ', $eventTime[0]);
+                    list($date, $time) = explode(' ', $eventTime);
                     
                     list($year, $month, $day) = explode('-', $date);
                     list($hour, $minutes, $seconds) = explode(':', $time);
                     
-                    echo "<p> $month </p>";
-                    echo "<p> $day </p>";
-                    echo "<p> $year </p>";
+                    $monthString = monthToString($month);
+                    
+                    echo "<span id='eventTime'> $monthString </span>";
+                    echo "<span id='eventTime'> $day </span>";
+                    echo "<span id='eventTime'> $year \n </span>";
                 
                 ?>
                 
@@ -133,25 +98,12 @@ and open the template in the editor.
             
             <div class="eventLocation">
                 
-                <?php  ?>
-                
                 <?php
                 
-                    $stmt = $conn->prepare("SELECT E_Location FROM events WHERE EventNr = 2");
-
-                    //Execute the previous defined statement
-                    $stmt->execute();
-
-                    //
-                    $result = $stmt->setFetchMode(PDO::FETCH_NUM);
-
-                    $eventLocation = $stmt->fetch();
-                    
-                    $eventLocation = $eventLocation[0];
-                    
-                    echo "<p> $hour : $minutes </p>";
-                    echo "<p> $eventLocation </p>";
-                    echo "<p> $eventName </p>";
+                    echo "<span id='eventInfo'> $hour : $minutes </span>";
+                    //echo "<p> <font <strong> $eventLocation </strong> </p>";
+                    echo "<span id='eventPlace'> $eventLocation </span>";
+                    echo "<span id='eventInfo'> $eventName </span>";
                 
                 ?>
                       
@@ -159,8 +111,14 @@ and open the template in the editor.
             
             <div class="goToTickets">
                 
-                <button class="ticketbtn">Buy ticket</button>
-                
+                <form action="ticket.php" method="post">
+                    
+                    <input type="number" name="eventNumber" value=<?php echo $eventNumber;?>>
+                    <input type="text" name="eventName" value=<?php echo $eventName;?>>
+                    <input type="submit" name="submit" value="Submit" class="ticketbtn">
+                        
+                </form>
+
             </div>
             
         </div><!<!-- end of division -->
@@ -190,5 +148,51 @@ and open the template in the editor.
     </body>
 
 </html>
+
+<?php
+
+    function monthToString($monthNumber){
+        
+        if ($monthNumber == "01"){
+            return "January";
+            
+        } else if ($monthNumber == "02"){
+            return "February";
+            
+        } else if ($monthNumber == "03"){
+            return "March";
+            
+        } else if ($monthNumber == "04"){
+            return "April";
+            
+        } else if ($monthNumber == "05"){
+            return "May";
+            
+        } else if ($monthNumber == "06"){
+            return "June";
+            
+        } else if ($monthNumber == "07"){
+            return "July";
+            
+        } else if ($monthNumber == "08"){
+            return "August";
+            
+        } else if ($monthNumber == "09"){
+            return "September";
+            
+        } else if ($monthNumber == "10"){
+            return "October";
+            
+        } else if ($monthNumber == "11"){
+            return "November";
+            
+        } else if ($monthNumber == "12"){
+            return "December";
+            
+        }
+        
+    }
+
+?>
 
 
