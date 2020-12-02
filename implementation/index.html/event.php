@@ -12,7 +12,7 @@ and open the template in the editor.
         <title>Event window</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="event.css"><!-- link to stylesheet -->
+        <link rel="stylesheet" href="../css/event.css"><!-- link to stylesheet -->
     </head>
     
     <body>
@@ -51,11 +51,11 @@ and open the template in the editor.
             
 	</header><!-- end of header -->
         
-        <div id="eventDetails">
+        <div class="eventDetails">
             
             <div id="eventGraph">
                 
-                <img src="./GitHub/prj1-2020-group-prj1-2020-15/implementation/images/badmintonEvent.jpg" alt="Event">
+                <img src="../img/badmintonEvent.jpg" alt="Event">
                 
             </div><!<!-- end of division -->
             
@@ -87,25 +87,22 @@ and open the template in the editor.
                     list($hour, $minutes, $seconds) = explode(':', $time);
                     
                     $monthString = monthToString($month);
-                    
-                    echo "<span id='eventTime'> $monthString </span>";
-                    echo "<span id='eventTime'> $day </span>";
-                    echo "<span id='eventTime'> $year \n </span>";
                 
                 ?>
+                
+                <p id="eventMonth"> <?php echo $monthString; ?></p>
+                <p> <?php echo $day; ?></p>
+                <p> <?php echo $year; ?></p>
                 
             </div>
             
             <div class="eventLocation">
                 
-                <?php
                 
-                    echo "<span id='eventInfo'> $hour : $minutes </span>";
-                    //echo "<p> <font <strong> $eventLocation </strong> </p>";
-                    echo "<span id='eventPlace'> $eventLocation </span>";
-                    echo "<span id='eventInfo'> $eventName </span>";
                 
-                ?>
+                <p id="eventTime"> <?php echo "$hour : $minutes"; ?> </p>
+                <p id="eventPlace"> <?php echo $eventLocation; ?> </p>
+                <p> <?php echo $eventName; ?> </p>
                       
             </div>
             
@@ -113,9 +110,16 @@ and open the template in the editor.
                 
                 <form action="ticket.php" method="post">
                     
-                    <input type="number" name="eventNumber" value=<?php echo $eventNumber;?>>
-                    <input type="text" name="eventName" value=<?php echo $eventName;?>>
-                    <input type="submit" name="submit" value="Submit" class="ticketbtn">
+                    <?php
+                    
+                        $eventInfo = explode(' ', $eventName);
+                        $eventInfo = implode('%%', $eventInfo);
+                    
+                    ?>
+                    
+                    <input id="eventNumber" name="eventNumber" type="hidden" value=<?php echo $eventNumber;?>>
+                    <input id="eventName" name="eventName" type="hidden" value=<?php echo $eventInfo;?>>
+                    <input type="submit" name="submit" value="Go to tickets" id="ticketbtn">
                         
                 </form>
 
@@ -139,7 +143,7 @@ and open the template in the editor.
             <div id="rightFooter">
                 
                <h1>Payment options</h1>
-                <img src="./images/paymentOptionsA.png" alt="Payment options image"> 
+                <img src="../img/paymentOptionsA.png" alt="Payment options image"> 
                 
             </div><!-- end of division -->
             

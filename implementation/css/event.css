@@ -48,7 +48,7 @@ header h1 {
     font-size: 30pt; /* Size of the font */
 }
 
-div#eventDetails {
+.eventDetails {
     margin-right: auto;
     margin-left: auto;
     margin-top: 20px;
@@ -59,13 +59,13 @@ div#eventDetails {
     max-width: 95%;
 }
 
-div#eventGraph {
+#eventGraph {
     float: left; /*Locate the section on the left*/
     width: 50%; /*Stablish the section to 50% of footer width*/
     height: 100%; /*Stablish heigth to 100% of footer window*/
 }
 
-div#eventGraph img {
+#eventGraph img {
     width: 90%;
     height: 80%;
     min-height: 100pt;
@@ -78,20 +78,20 @@ div#eventGraph img {
 
 }
 
-div#eventDescription {
+#eventDescription {
     float: left; /*Locate the section on the left*/
     width: 50%; /*Stablish the section to 50% of footer width*/
     height: 100%; /*Stablish heigth to 100% of footer window*/
 }
 
-div#eventDescription h1 {
+#eventDescription h1 {
     margin-left: 2pt;
     font-size: 18pt; /* Size of the font */
     text-align: left; /* Where is the text found */
     font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
 }
 
-div#eventDescription p {
+#eventDescription p {
     margin-right: 2pt;
     margin-left: 3pt;
     font-size: 12pt; /* Size of the font */
@@ -119,11 +119,21 @@ div#eventDescription p {
 .eventDate {
     margin-left: 15pt;
     float: left; /*Locate the section on the left*/
-    width: 10%; /*Stablish the section to 50% of footer width*/
+    width: 13%; /*Stablish the section to 50% of footer width*/
     height: 125px; /*Stablish heigth to 100% of footer window*/
     border-top: 1pt solid;
     border-bottom: 1pt solid;
     border-left: 1pt solid;
+}
+
+.eventDate p#eventMonth {
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: center; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    height: 33%;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .eventDate p {
@@ -131,17 +141,9 @@ div#eventDescription p {
     font-size: 12pt; /* Size of the font */
     text-align: center; /* Where is the text found */
     font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
-}
-
-#eventTime{
-    margin-left: 10px;
-    font-size: 12pt; /* Size of the font */
-    text-align: center; /* Where is the text found */
-    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
+    height: 33%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .eventLocation {
@@ -152,13 +154,24 @@ div#eventDescription p {
     border-bottom: 1pt solid;
 }
 
+.eventLocation p#eventTime {
+    margin-left: 10px;
+    font-size: 12pt; /* Size of the font */
+    text-align: left; /* Where is the text found */
+    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
+    height: 33%;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
 .eventLocation p {
     margin-left: 10px;
     font-size: 12pt; /* Size of the font */
     text-align: left; /* Where is the text found */
     font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
+    height: 33%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .eventLocation p#eventPlace {
@@ -167,29 +180,10 @@ div#eventDescription p {
     text-align: left; /* Where is the text found */
     font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
     font-weight: bold;
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
-    margin-top: 1.5pt;
-}
-
-#eventPlace {
-    margin-left: 10px;
-    font-size: 12pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    font-weight: bold;
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
-    margin-top: 1.5pt;
-}
-
-#eventInfo{
-    margin-left: 10px;
-    font-size: 12pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
+    line-height: 1;
+    height: 33%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /*https://www.javatpoint.com/how-to-center-a-button-in-css*/
@@ -201,16 +195,21 @@ div#eventDescription p {
     border-top: 1pt solid;
     border-bottom: 1pt solid;
     border-right: 1pt solid;
-    display: grid;
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
 }
 
-.ticketbtn {
-    width: 100pt;
-    height: 30pt;
+#ticketbtn {
     font-size: 14px;
     font-family: "Source Sans", sans-serif;
     font-weight: bold;
-    margin: auto;
+    background-color: white;
+    border: 1pt solid;
+    border-radius: 10px;
+    padding: 20px 32px;
+    margin: 4px 2px;
+    cursor: pointer;
     
 }
 

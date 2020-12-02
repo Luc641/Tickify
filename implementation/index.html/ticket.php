@@ -12,7 +12,7 @@ and open the template in the editor.
         <title>Ticket window</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="ticket.css"><!-- link to stylesheet -->
+        <link rel="stylesheet" href="../css/ticket.css"><!-- link to stylesheet -->
     </head>
     
     <body>
@@ -21,8 +21,12 @@ and open the template in the editor.
             
             <?php
                 
+            
                 $eventName = $_POST["eventName"];
                 $eventNumber = $_POST["eventNumber"];
+                
+                $eventName = explode('%%', $eventName);
+                $eventName = implode(' ', $eventName);
                 
                 //Get list of diferent categories and ticket price
                 $stmt = $conn->prepare("SELECT distinct ticketcategory, avg(price) "
@@ -71,7 +75,7 @@ and open the template in the editor.
               
             ?>
             
-            <img src="./images/badmintonEvent.jpg" alt="Event" >
+            <img src="../img/badmintonEvent.jpg" alt="Event" >
             
             <?php echo "<h1>$eventName</h1>" ?>
             
@@ -131,9 +135,15 @@ and open the template in the editor.
         
         <div class="goToPayment">
             
-            <button id="paymentBtn">Go to Payment</button>
+            <form action="ticket.php" method="POST">
+                <?php
+                   $_POST["ticketNr"];
+                ?>
+                
+                <input type="submit" id="paymentBtn" value ="Go to payment" >
+            </form>
             
-        </div><!-- end of division -->
+        </div> 
         
         <footer>
             
@@ -151,7 +161,7 @@ and open the template in the editor.
             <div id="rightFooter">
                 
                <h1>Payment options</h1>
-                <img src="./images/paymentOptionsA.png" alt="Payment options image"> 
+                <img src="../img/paymentOptionsA.png" alt="Payment options image"> 
                 
             </div><!-- end of division -->
             
