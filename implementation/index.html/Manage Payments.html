@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+
+
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -20,28 +23,51 @@ and open the template in the editor.
         <input type="text" placeholder="Search..">
   </div>
 </div> 
-<table id="Payments">
-  <tr>
-    <th>Order Nr. </th>
-    <th>Funds</th>
-    <th>Date</th>
-  </tr>
-  <tr>  
-      <td><a href ="Order1.html">Order1</a></td>
-    <td>20.00$</td>
-    <td>18.10.2020</td>
-   </tr>
-   <tr>
-    <td><a href ="Order2.html">Order2</a></td>
-    <td>25.00$</td>
-    <td>20.10.2020</td>
-   </tr>
-    <tr>
-    <td><a href ="Order3.html">Order3</a></td>
-    <td>10.00$</td>
-    <td>22.10.2020</td>
-   </tr>   
-</table>                        
+echo "<table style='border: solid 1px black;'>";
+                echo "<tr><th>OrderNumber</th><th>OrderDate</th><th>PaymentStatus</th><th>CustomerMail</th></tr>";
+class TableRows extends RecursiveIteratorIterator {
+    function __construct($it) {
+        parent::__construct($it, self::LEAVES_ONLY);
+    }
+
+    function current() {
+        return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
+    }
+
+    function beginChildren() {
+        echo "<tr>";
+    }
+
+    function endChildren() {
+        echo "</tr>" . "\n";
+    }
+}
+
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT OrderNumber, OrderDate, PaymentStatus,CustomerMail FROM ORDERS");
+    $stmt->execute();
+
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+        echo $v;
+    }
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
+echo "</table>";
+?>
+
         </main>
     </body>
 </html>
