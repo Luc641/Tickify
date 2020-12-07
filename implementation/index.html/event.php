@@ -27,7 +27,6 @@ and open the template in the editor.
                 $stmt = $conn->prepare("SELECT E_Name, EventCategory, Description, E_Location, E_Date, filePath "
                                         . "FROM events "
                                         . "WHERE EventNr = $eventNumber");
-
                 //Execute the previous defined statement
                 $stmt->execute();
 
@@ -113,7 +112,7 @@ and open the template in the editor.
                     <?php
                     
                         $eventInfo = explode(' ', $eventName);
-                        $eventInfo = implode('%%', $eventInfo);
+                        $eventInfo = implode('%%%', $eventInfo);
                     
                     ?>
                     

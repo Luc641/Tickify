@@ -20,12 +20,11 @@ and open the template in the editor.
         <header>
             
             <?php
-                
             
                 $eventName = $_POST["eventName"];
                 $eventNumber = $_POST["eventNumber"];
                 
-                $eventName = explode('%%', $eventName);
+                $eventName = explode('%%%', $eventName);
                 $eventName = implode(' ', $eventName);
                 
                 //Get list of diferent categories and ticket price
@@ -119,10 +118,14 @@ and open the template in the editor.
                 
                 <div class="centerBtn">
                     
-                    <form action="" method="POST">
+                    <form action="test.php" method="POST">
                         <?php
-                            echo '<input type="number" class="ticketNr" name="ticketNr" placeholder="0" min="0" max="'.htmlspecialchars($allowedToBuy).'" >';
+                            echo '<input type="number" class="ticketNr" name="'.htmlspecialchars($category).'" placeholder="0" min="0" max="'.htmlspecialchars($allowedToBuy).'" >';
                         ?>
+                        <input type="hidden" name="eventCategory" value=<?php echo $category;?>>
+                        <input type="hidden" name="eventNumber" value=<?php echo $eventNumber;?>>
+                        <input type="hidden" name="ticketPrice" value=<?php echo $prices[$category];?>>
+                        <input type="submit" class="paymentBtn" value ="Go to Payment" >
                     </form>
                         
                 </div>
@@ -132,18 +135,6 @@ and open the template in the editor.
         </div><!-- end of division -->
         
         <?php } ?>
-        
-        <div class="goToPayment">
-            
-            <form action="ticket.php" method="POST">
-                <?php
-                   $_POST["ticketNr"];
-                ?>
-                
-                <input type="submit" id="paymentBtn" value ="Go to payment" >
-            </form>
-            
-        </div> 
         
         <footer>
             
