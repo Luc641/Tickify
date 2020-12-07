@@ -17,6 +17,8 @@ and open the template in the editor.
     
     <body>
         
+        <?php include 'navigation.php';?>
+        
         <header>
             
             <?php
@@ -102,7 +104,7 @@ and open the template in the editor.
                         $ticketToBuy = $availableTickets[$category];
                     }
                 
-                    echo "<p>Category description $category - Price: $prices[$category] €</p>";
+                    echo "<p>Price: $prices[$category] €</p>";
                     echo "<p>Available tickets: $ticketToBuy </p>";
                     
                     $allowedToBuy = $ticketToBuy; 
@@ -116,47 +118,21 @@ and open the template in the editor.
             
             <div class="ticketQuantity">
                 
-                <div class="centerBtn">
-                    
-                    <form action="test.php" method="POST">
-                        <?php
-                            echo '<input type="number" class="ticketNr" name="'.htmlspecialchars($category).'" placeholder="0" min="0" max="'.htmlspecialchars($allowedToBuy).'" >';
-                        ?>
-                        <input type="hidden" name="eventCategory" value=<?php echo $category;?>>
-                        <input type="hidden" name="eventNumber" value=<?php echo $eventNumber;?>>
-                        <input type="hidden" name="ticketPrice" value=<?php echo $prices[$category];?>>
-                        <input type="submit" class="paymentBtn" value ="Go to Payment" >
-                    </form>
-                        
-                </div>
+                <form action="test.php" method="POST">
+                    <input type="hidden" name="eventCategory" value=<?php echo $category;?>>
+                    <input type="hidden" name="eventNumber" value=<?php echo $eventNumber;?>>
+                    <input type="hidden" name="ticketPrice" value=<?php echo $prices[$category];?>>
+                    <input type="number" id="ticketNr" name=<?php echo $category; ?> placeholder="0" min="0" max=<?php echo $allowedToBuy; ?> >
+                    <input type="submit" id="paymentBtn" value ="Go to Payment" >
+                </form>  
                 
             </div><!-- end of division -->
             
         </div><!-- end of division -->
         
         <?php } ?>
-        
-        <footer>
-            
-            <div id="leftFooter">
-                
-               <h1>Contact</h1>
 
-                <ul>
-                    <li><p>+31 111 111 111 for ordering tickets</p></li>
-                    <li><p>+31 222 222 222 for service</p></li>
-                </ul> 
-                
-            </div><!-- end of division -->
-            
-            <div id="rightFooter">
-                
-               <h1>Payment options</h1>
-                <img src="../img/paymentOptionsA.png" alt="Payment options image"> 
-                
-            </div><!-- end of division -->
-            
-        </footer><!-- end of footer -->
+        <?php include 'footer.php';?>
         
     </body>
 

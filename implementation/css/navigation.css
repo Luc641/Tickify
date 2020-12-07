@@ -17,6 +17,7 @@ body {
     min-height: 60px;
     height: auto;
     width: 100%;
+    margin-bottom: 5px;
 }
 
 .navContainer {
@@ -138,6 +139,7 @@ body {
     padding-top: 10px;
     height: 280px;
     width: 350px;
+    background-color: white;
 
 }
 
@@ -150,9 +152,6 @@ body {
     background-color: white;
 }
 
-/*.profileOptions form p {
-    
-}*/
 
 .profileOptions form fieldset p label {
     font-size: 14pt;

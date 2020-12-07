@@ -70,12 +70,11 @@ header h1 {
     height: 80%;
     min-height: 100pt;
     min-width: 100pt;
-    display: block;
     display: block; /*Define the imagine is a whole pack*/
     margin-left: auto; /*Make sure image is centered - css does the calculation*/
     margin-right: 10%; /*Make sure image is centered - css does the calculation*/
     margin-top: 20pt;
-
+    margin-bottom: 15px;
 }
 
 #eventDescription {
@@ -210,72 +209,5 @@ header h1 {
     padding: 20px 32px;
     margin: 4px 2px;
     cursor: pointer;
-    
 }
 
-/*Function to modify the footer*/
-footer {
-    clear: both;
-    width: 100%; /*Total of window width*/
-    height: 200px; /*Set height to 200 pixels in total*/
-}
-
-/*Function to create first half of the footer located on the left*/
-footer div#leftFooter {
-    background-color: #ff9e2c;
-    float: left; /*Locate the section on the left*/
-    width: 50%; /*Stablish the section to 50% of footer width*/
-    height: 100%; /*Stablish heigth to 100% of footer window*/
-    border-bottom: 1px solid; 
-    border-top: 1px solid;
-}
-
-/*Function to define header of left footer*/
-footer div#leftFooter h1 {
-    margin-left: 15px;
-    font-size: 14pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
-}
-
-/*Function to define how the list in left footer is displayed*/
-.footer div#leftFooter ul {
-    margin-left: 20px;
-    margin-right: 10px;
-    font-size: 12pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-}
-
-/*Function to create the other half of the footer located on the right*/
-/*Similar to footer_left*/
-footer div#rightFooter{
-    background-color: #b6701e;
-    float: left; /*Attach section to the left after the previous one*/
-    width: 50%; /*Stablish section to 50% (half page))*/
-    height:100%; /*Stablish heigth to 100% of footer window*/
-    border-bottom: 1px solid;
-    border-top: 1px solid;
-}
-
-/*Function to define header of right footer*/
-footer div#rightFooter h1 {
-    margin-left: 15px;
-    font-size: 14pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 10pt;
-}
-
-/*Function to define how image inside right footer is displayed*/
-footer div#rightFooter img {
-    display: block; /*Define the imagine is a whole pack*/
-    margin-left: auto; /*Make sure image is centered - css does the calculation*/
-    margin-right: auto; /*Make sure image is centered - css does the calculation*/
-    width: 65%; /*Increase image width with window size*/
-    height: 50%; /*Increase image heigth with window size*/
-}

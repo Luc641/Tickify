@@ -17,6 +17,8 @@ and open the template in the editor.
     
     <body>
         
+        <?php include 'navigation.php';?>
+        
         <header>
 
             <?php
@@ -126,27 +128,7 @@ and open the template in the editor.
             
         </div><!<!-- end of division -->
 
-        <footer>
-            
-            <div id="leftFooter">
-                
-               <h1>Contact</h1>
-
-                <ul>
-                    <li><p>+31 111 111 111 for ordering tickets</p></li>
-                    <li><p>+31 222 222 222 for service</p></li>
-                </ul> 
-                
-            </div><!-- end of division -->
-            
-            <div id="rightFooter">
-                
-               <h1>Payment options</h1>
-                <img src="../img/paymentOptionsA.png" alt="Payment options image"> 
-                
-            </div><!-- end of division -->
-            
-        </footer><!-- end of footer -->
+        <?php include 'footer.php';?>
         
     </body>
 
