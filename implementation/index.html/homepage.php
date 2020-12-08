@@ -4,7 +4,7 @@
 <head>
     <title>Tickify Homepage</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="homepage_style.css">
+    <link rel="stylesheet" href="../css/homepage_style.css">
 
 </head>
 <body>
@@ -19,14 +19,14 @@
             <ul class="topnav">
                 <li>
                     <div class="logo">
-                        <a href="homepage.html"><img src="home.png" height="30px" alt=""></a>
+                        <a href="homepage.html"><img src="../img/home.png" height="30px" alt=""></a>
                     </div>
                 </li>
                 
 
                 <li id="categories">
                     <div class="dropdown">
-                        <button class="dropbtn" ><a class="categories" href="#"><img src="categories.png" height="25" width="25"></a></i></button>
+                        <button class="dropbtn" ><a class="categories" href="#"><img src="../img/categories.png" height="25" width="25"></a></i></button>
                         <div class="dropdown-content">
                             <a href="#search-theatre">Theatre</a>
                             <a href="#search-musicals">Musicals</a>
@@ -42,7 +42,7 @@
                 <li>
                     <div class="searchbar">
                     <input type="text" placeholder="S e a r c h . . .">
-                    <a href="search_event.html"><input type="image" src="search.png" width="25" height="25px" alt="submit"></a>
+                    <a href="search_event.html"><input type="image" src="../img/search.png" width="25" height="25px" alt="submit"></a>
                     </div>
                 </li>
                 
@@ -53,7 +53,7 @@
                     <div class=" profile">
                         
                         <div class="dropdown">
-                            <button><a href="#"><img src="profile.png" height="25px" alt=""></a></button>
+                            <button><a href="#"><img src="../img/profile.png" height="25px" alt=""></a></button>
                             
                             <div class="dropdown-content">
                                 <br>
@@ -81,10 +81,7 @@
                 
                
                 $result = pg_query($conn, "SELECT e_name FROM events");
-                echo "$result";
-
-                
-                
+                echo "$result";               
                 ?>
                 </td>
                 <td>Event 2</td>
