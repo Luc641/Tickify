@@ -4,11 +4,11 @@
 
 <html>
 
-        <form>
-            
-            <link rel="stylesheet" type="text/css" href="payment.css" media="screen" />
-            
-            <nav class="navbar">
+    <head>
+
+    <link rel="stylesheet" type="text/css" href="payment.css" media="screen" />
+
+    <nav class="navbar">
                 
                 <div class="home">
                     
@@ -76,7 +76,10 @@
                 </div>
                 
             </nav>
-            
+    </head>
+
+
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         
         <div> 
             
@@ -103,15 +106,27 @@
             <label for="bic"> <b> BIC / Swift </b></label>
             <input type="text" placeholder="Enter bank name" name="bic" id="bic" required>
             
-            <button type="submit" class="paymentbtn"> Confirm </button>
+            <button type="submit" class="paymentbtn" formmethod="post"> Confirm </button>
             <button type="button" class="cancelbtn"> Cancel </button>
             
             
             </div>
             
-            
-        
         </form>
+
+        <?php 
+
+            if(isset($_POST['submit'])){
+
+                $ANAME = $_POST['aname'];
+                $ANUMB = $_POST['anumb'];
+                $BNAME = $_POST['bname'];
+                $SCODE = $_POST['scode'];
+                $IBAN = $_POST['iban'];
+                $BIC = $_POST['bic'];
+            }
+            
+        ?>
 
 
 </html>
