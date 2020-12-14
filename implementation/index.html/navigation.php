@@ -136,8 +136,8 @@
 
                         ?>
                        
-                        <form name="logout" method="post" class = "logoutForm" action=<?php $link ?>>
-
+                        <form name="logout" method="post" id="logoutForm" action=<?php $link ?>>
+                            
                             <input type="submit" name="logoutBtn" id="logoutBtn" value="Log Out">
 
                         </form>

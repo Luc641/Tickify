@@ -9,7 +9,8 @@ and open the template in the editor.
 
 <html>
     <head>
-        <title>Ticket window</title>
+        <title>Tickify - Ticket window</title>
+        <link rel="icon" href="../img/TickifyLogo.png" type="image/icon type">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/ticket.css"><!-- link to stylesheet -->
@@ -22,63 +23,22 @@ and open the template in the editor.
         <header>
             
             <?php
-            
-                $eventName = $_POST["eventName"];
+
+                $eventName = eventNameFormat($_POST["eventName"]);
                 $eventNumber = $_POST["eventNumber"];
                 
-                $eventName = explode('%%%', $eventName);
-                $eventName = implode(' ', $eventName);
-                
-                //Get list of diferent categories and ticket price
-                $stmt = $conn->prepare("SELECT distinct ticketcategory, avg(price) "
-                                        . "FROM ticket "
-                                        . "WHERE EventNumber = $eventNumber "
-                                        . "GROUP BY ticketcategory "
-                                        . "ORDER BY TicketCategory");
-
-                //Execute the previous defined statement
-                $stmt->execute();
-
-                $result = $stmt->setFetchMode(PDO::FETCH_BOTH);
-                
-                $categories = array();
-                $prices = array();
-                
-                // Save every obtained data into an array - $categories 
-                // Save tickets price with key => value array
-                while ($row = $stmt->fetch()) {
-                    array_push($categories, $row[0]);
-                    $prices[$row[0]] = number_format($row[1], 2); // float number with 2 decimals
-                }
+                list($categories, $prices) = getTicketInfo($eventNumber, $conn);
                 
                 //Calculate number of different categories
                 $numberOfCategories = sizeof($categories);
                 
-                //Get list of diferent categories and number of available tickets
-                $stmt = $conn->prepare("SELECT distinct ticketcategory, count (distinct ID) "
-                                        . "FROM ticket "
-                                        . "WHERE EventNumber = $eventNumber and order_number is null "
-                                        . "GROUP BY ticketcategory "
-                                        . "ORDER BY TicketCategory");
-
-                //Execute the previous defined statement
-                $stmt->execute();
-
-                $result = $stmt->setFetchMode(PDO::FETCH_BOTH);
-                
-                $availableTickets = array();
-                
-                // Save every obtained data into an array - $categories 
-                // Save tickets available with key => value array
-                while ($row = $stmt->fetch()) {
-                    $availableTickets[$row[0]] = $row[1];
-                }
+                $availableTickets = getAvailableTickets($eventNumber, $conn);
               
             ?>
             
             <img src="../img/badmintonEvent.jpg" alt="Event" >
             
-            <?php echo "<h1>$eventName</h1>" ?>
+            <h1> <?php echo $eventName; ?> </h1>
             
 	</header><!-- end of header -->
         
@@ -88,11 +48,12 @@ and open the template in the editor.
         
         // loop for printing the code between the two php the desired times
         foreach ($categories as $category){
+            
         ?>
         
         <div class="category">
             
-            <?php echo "<h1>$category</h1>" ?>
+            <h1> <?php echo $category; ?> </h1>
             
             <div class="categoryDescription">
                 
@@ -103,16 +64,16 @@ and open the template in the editor.
                     if (array_key_exists($category, $availableTickets)){
                         $ticketToBuy = $availableTickets[$category];
                     }
-                
-                    echo "<p>Price: $prices[$category] €</p>";
-                    echo "<p>Available tickets: $ticketToBuy </p>";
-                    
+
                     $allowedToBuy = $ticketToBuy; 
                     
                     if ($ticketToBuy > 10) {
                         $allowedToBuy = 10;
                     }
                 ?>
+                
+                <p> <?php echo "Price: ". $prices[$category] . "€"; ?> </p>
+                <p> <?php echo "Available tickets: ". $ticketToBuy; ?> </p>
                 
             </div>
             
@@ -137,4 +98,80 @@ and open the template in the editor.
     </body>
 
 </html>
+
+<?php
+
+    function eventNameFormat($name){
+        
+        $eventName = explode('%%%', $name);
+        $eventName = implode(' ', $eventName);
+        
+        return $eventName;
+    }
+    
+    function getTicketInfo($eventNumber, $conn){
+        
+        //Get list of diferent categories and ticket price
+        $stmt = $conn->prepare("SELECT distinct ticketcategory, avg(price) "
+                                . "FROM ticket "
+                                . "WHERE EventNumber = ? "
+                                . "GROUP BY ticketcategory "
+                                . "ORDER BY TicketCategory");
+
+        //Execute the previous defined statement
+        $stmt->execute([$eventNumber]);
+
+        $result = $stmt->setFetchMode(PDO::FETCH_BOTH);
+
+        $categories = array();
+        $prices = array();
+
+        // Save every obtained data into an array - $categories 
+        // Save tickets price with key => value array
+        while ($row = $stmt->fetch()) {
+            array_push($categories, $row[0]);
+            $prices[$row[0]] = number_format($row[1], 2); // float number with 2 decimals
+        }
+        
+        $ticketInfo = array($categories, $prices);
+        
+        return $ticketInfo;
+    }
+    
+    function getAvailableTickets($eventNumber, $conn){
+        
+        //Get list of diferent categories and number of available tickets
+        $stmt = $conn->prepare("SELECT distinct ticketcategory, count (distinct ID) "
+                                . "FROM ticket "
+                                . "WHERE EventNumber = ? and order_number is null "
+                                . "GROUP BY ticketcategory "
+                                . "ORDER BY TicketCategory");
+
+        //Execute the previous defined statement
+        $stmt->execute([$eventNumber]);
+
+        $result = $stmt->setFetchMode(PDO::FETCH_BOTH);
+
+        $availableTickets = array();
+
+        // Save every obtained data into an array - $categories 
+        // Save tickets available with key => value array
+        while ($row = $stmt->fetch()) {
+            $availableTickets[$row[0]] = $row[1];
+        }
+        
+        return $availableTickets;
+    }
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+    
+?>
 

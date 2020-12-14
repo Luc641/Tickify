@@ -25,50 +25,30 @@ and open the template in the editor.
             
                 $eventNumber = 3;
             
-                //Define the statement that is going to be executed
-                $stmt = $conn->prepare("SELECT E_Name, EventCategory, Description, E_Location, E_Date, filePath "
-                                        . "FROM events "
-                                        . "WHERE EventNr = $eventNumber");
-                //Execute the previous defined statement
-                $stmt->execute();
+                $event = getEventInfo($eventNumber, $conn);
+                
+                list($eventName, $eventCategory, $description, $eventLocation, $eventTime, $filepath) = $event;
 
-                //
-                $result = $stmt->setFetchMode(PDO::FETCH_NUM);
-
-                $event = $stmt->fetch();
-                
-                $eventName = $event[0];
-                $eventCategory = $event[1];
-                $description = $event[2];
-                $eventLocation = $event[3];
-                $eventTime = $event[4];
-                $filePath = $event[5];
-                
-                
-                echo "<p> $eventCategory </p>";
-                echo "<h1> $eventName </h1>";
-                
             ?>
+            
+            <p> <?php echo $eventCategory; ?> </p>
+            <h1> <?php echo $eventName; ?> </h1>
             
 	</header><!-- end of header -->
         
         <div class="eventDetails">
             
-            <div id="eventGraph">
+            <article id="eventGraph">
                 
                 <img src="../img/badmintonEvent.jpg" alt="Event">
                 
-            </div><!<!-- end of division -->
+            </article><!<!-- end of division -->
             
             <div id="eventDescription">
                 
                 <h1>About the event</h1>
                 
-                <?php
-
-                    echo "<p> $description </p>";
-                
-                ?>
+                <p> <?php echo $description; ?> </p>
                 
             </div><!-- end of division -->
             
@@ -78,7 +58,7 @@ and open the template in the editor.
             
             <h1> Next events </h1>
             
-            <div class="eventDate">
+            <section class="eventDate">
                 
                 <?php
 
@@ -95,17 +75,15 @@ and open the template in the editor.
                 <p> <?php echo $day; ?></p>
                 <p> <?php echo $year; ?></p>
                 
-            </div>
+            </section>
             
-            <div class="eventLocation">
-                
-                
-                
+            <section class="eventLocation">
+
                 <p id="eventTime"> <?php echo "$hour : $minutes"; ?> </p>
                 <p id="eventPlace"> <?php echo $eventLocation; ?> </p>
                 <p> <?php echo $eventName; ?> </p>
                       
-            </div>
+            </section>
             
             <div class="goToTickets">
                 
@@ -113,14 +91,22 @@ and open the template in the editor.
                     
                     <?php
                     
-                        $eventInfo = explode(' ', $eventName);
-                        $eventInfo = implode('%%%', $eventInfo);
+                        $eventInfo = eventNameFormat($eventName);
                     
                     ?>
                     
                     <input id="eventNumber" name="eventNumber" type="hidden" value=<?php echo $eventNumber;?>>
                     <input id="eventName" name="eventName" type="hidden" value=<?php echo $eventInfo;?>>
+                    
+                    <?php if((isset($_SESSION["user"])) and $_SESSION["userType"] == 0) { ?>
+                    
                     <input type="submit" name="submit" value="Go to tickets" id="ticketbtn">
+                    
+                    <?php } else { ?>
+                    
+                    <textarea id="ticketAccess" name="ticketAccess" rows="2" cols="20" readonly="true">Log in as a customer to buy tickets</textarea>
+                    
+                    <?php } ?>
                         
                 </form>
 
@@ -136,6 +122,32 @@ and open the template in the editor.
 
 <?php
 
+    function eventNameFormat($eventName){
+        
+        $eventInfo = explode(' ', $eventName);
+        $eventInfo = implode('%%%', $eventInfo);
+        
+        return $eventInfo;
+    }
+    
+    function getEventInfo($eventNumber, $conn){
+        
+        //Define the statement that is going to be executed
+        $stmt = $conn->prepare("SELECT E_Name, EventCategory, Description, E_Location, E_Date, filePath "
+                                . "FROM events "
+                                . "WHERE EventNr = ?");
+        //Execute the previous defined statement
+        $stmt->execute([$eventNumber]);
+
+        //
+        $result = $stmt->setFetchMode(PDO::FETCH_NUM);
+
+        $event = $stmt->fetch();
+        
+        return $event;
+        
+    }
+    
     function monthToString($monthNumber){
         
         if ($monthNumber == "01"){

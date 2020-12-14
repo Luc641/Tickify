@@ -146,12 +146,12 @@ body {
 
 .profileMenu {
     display: none;
+    position: absolute;
     padding-top: 10px;
-    height: 280px;
+    min-height: 100px;
     width: 350px;
     background-color: white;
     margin-left: -265px;
-
 }
 
 .profileMenu form {
@@ -214,8 +214,8 @@ body {
     font-size: 11pt;
 }
 
-.logoutForm{
-    width: 350px;
+#logoutForm{
+    width: 348px;
     border: 1pt solid gainsboro;
 }
 

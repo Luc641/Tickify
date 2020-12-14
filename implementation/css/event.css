@@ -66,33 +66,34 @@ header h1 {
 }
 
 #eventGraph img {
-    width: 90%;
-    height: 80%;
-    min-height: 100pt;
-    min-width: 100pt;
+    width: 70%;
+    height: 60%;
+    min-height: 80px;
+    min-width: 80px;
     display: block; /*Define the imagine is a whole pack*/
     margin-left: auto; /*Make sure image is centered - css does the calculation*/
-    margin-right: 10%; /*Make sure image is centered - css does the calculation*/
-    margin-top: 20pt;
+    margin-right: 130px; /*Make sure image is centered - css does the calculation*/
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
 #eventDescription {
     float: left; /*Locate the section on the left*/
-    width: 50%; /*Stablish the section to 50% of footer width*/
+    width: 47%; /*Stablish the section to 50% of footer width*/
     height: 100%; /*Stablish heigth to 100% of footer window*/
 }
 
 #eventDescription h1 {
-    margin-left: 2pt;
+    margin-top: 15px;
+    margin-left: 5px;
     font-size: 18pt; /* Size of the font */
     text-align: left; /* Where is the text found */
     font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
 }
 
 #eventDescription p {
-    margin-right: 2pt;
-    margin-left: 3pt;
+    margin-right: 5px;
+    margin-left: 5px;
     font-size: 12pt; /* Size of the font */
     text-align: justify; /* Where is the text found */
     font-family: 'Source Sans Pro', sans-serif;  /* Type of font - it has been declared in html file */
@@ -109,14 +110,14 @@ header h1 {
 }
 
 .eventTicket h1 {
-    margin-left: 15pt;
+    margin-left: 10px;
     font-size: 18pt; /* Size of the font */
     text-align: left; /* Where is the text found */
     font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
 }
 
 .eventDate {
-    margin-left: 15pt;
+    margin-left: 10px;
     float: left; /*Locate the section on the left*/
     width: 13%; /*Stablish the section to 50% of footer width*/
     height: 125px; /*Stablish heigth to 100% of footer window*/
@@ -209,6 +210,24 @@ header h1 {
     padding: 20px 32px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+#ticketAccess{
+    border: none;
+    font-size: 16px;
+    font-family: "Source Sans Pro Black", sans-serif;
+    width: 160px;
+    height: 60px;
+    text-align: center;
+    margin-top: 20px;
+    resize: none;
+    color: red;
+    font-weight: bold;
+    cursor: default;
+}
+
+#ticketAccess:focus {
+   outline: none;
 }
 
     
