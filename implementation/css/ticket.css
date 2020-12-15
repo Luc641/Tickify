@@ -70,7 +70,7 @@ h1{
     height: 75pt;
     border: 1pt solid;
     margin-top: 5pt;
-    margin-left: 40pt;
+    margin-left: 30pt;
 }
 
 .categoryDescription p {
@@ -84,124 +84,38 @@ h1{
 
 .ticketQuantity {
     float: right; /*Locate the section on the left*/
-    width: 15%; /*Stablish the section to 50% of footer width*/
+    width: 17%; /*Stablish the section to 50% of footer width*/
     height: 75pt; /*Stablish heigth to 100% of footer window*/
     border: 1pt solid;
     margin-top: 5pt;
-    margin-right: 40pt;
+    margin-right: 30pt;
 }
 
-.centerBtn {
-    width: 80%;
-    margin: 12.5%;
-}
-
-.minus {
-    width: 30pt;
-    height: 30pt;
-    font-size: 14pt;
-    font-family: "Source Sans", sans-serif;
-    font-weight: bold;
-}
-
-.ticketNr {
-    height: 30pt;
-    width: 40pt;
+#ticketNr {
+    display: block;
+    float: left;
+    height: 50px;
+    width: 50px;
     font-size: 14pt;
     font-family: "Source Sans", sans-serif;
     font-weight: bold;
     text-align: center;
+    margin-left: 15px;
+    margin-top: 23px;
 }
 
-.plus {
-    width: 30pt;
-    height: 30pt;
-    font-size: 14pt;
+#paymentBtn{
+    display: block;
+    float: left;
+    font-size: 12px;
     font-family: "Source Sans", sans-serif;
     font-weight: bold;
-}
-
-.goToPayment {
-    clear:both;
-    margin: 0;
-    padding: 0;
-}
-
-.goToPayment button#paymentBtn {
-    float: right;
-    width: 70pt;
-    height: 50pt;
-    font-size: 14pt;
-    font-family: "Source Sans", sans-serif;
-    font-weight: bold;
-    margin-right: 50pt;
-    margin-bottom: 20pt;
-    margin-top: 0pt;
-}
-
-/*Function to modify the footer*/
-footer {
-    clear: both;
-    width: 100%; /*Total of window width*/
-    height: 200px; /*Set height to 200 pixels in total*/
-}
-
-/*Function to create first half of the footer located on the left*/
-footer div#leftFooter {
-    background-color: #ff9e2c;
-    float: left; /*Locate the section on the left*/
-    width: 50%; /*Stablish the section to 50% of footer width*/
-    height: 100%; /*Stablish heigth to 100% of footer window*/
-    border-bottom: 1px solid; 
-    border-top: 1px solid;
-}
-
-/*Function to define header of left footer*/
-footer div#leftFooter h1 {
-    margin-left: 15px;
-    font-size: 14pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 1.5pt;
-}
-
-/*Function to define how the list in left footer is displayed*/
-.footer div#leftFooter ul {
-    margin-left: 20px;
-    margin-right: 10px;
-    font-size: 12pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-}
-
-/*Function to create the other half of the footer located on the right*/
-/*Similar to footer_left*/
-footer div#rightFooter{
-    background-color: #b6701e;
-    float: left; /*Attach section to the left after the previous one*/
-    width: 50%; /*Stablish section to 50% (half page))*/
-    height:100%; /*Stablish heigth to 100% of footer window*/
-    border-bottom: 1px solid;
-    border-top: 1px solid;
-}
-
-/*Function to define header of right footer*/
-footer div#rightFooter h1 {
-    margin-left: 15px;
-    font-size: 14pt; /* Size of the font */
-    text-align: left; /* Where is the text found */
-    font-family: 'Source Sans Pro Black', sans-serif;  /* Type of font - it has been declared in html file */
-    line-height: 1.5;
-    margin-bottom: 10pt;
-}
-
-/*Function to define how image inside right footer is displayed*/
-footer div#rightFooter img {
-    display: block; /*Define the imagine is a whole pack*/
-    margin-left: auto; /*Make sure image is centered - css does the calculation*/
-    margin-right: auto; /*Make sure image is centered - css does the calculation*/
-    width: 65%; /*Increase image width with window size*/
-    height: 50%; /*Increase image heigth with window size*/
+    background-color: white;
+    border: 1pt solid;
+    border-radius: 10px;
+    padding: 15px;
+/*    margin: 4px 2px;*/
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 27px;
 }

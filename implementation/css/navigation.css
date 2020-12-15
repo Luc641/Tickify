@@ -1,31 +1,28 @@
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 4 Nov 2020, 11:36:09
-    Author     : joel
+
+Styling file for the navigation bar
+
 */
 
 body {
     margin: 0 auto;
 }
 
-.navigation { 
+.navigationBar { 
     background-color: #8B219E ;
     min-height: 60px;
     height: auto;
     width: 100%;
+    margin-bottom: 5px;
 }
 
-.navContainer {
+.container {
     position: relative;
     margin: 0 auto;
     max-width: 1110px;
 }
 
-.navContainer a#home {
+.homepageLink {
     display: inline-block;
     float: left;
     width: 5%;
@@ -33,7 +30,7 @@ body {
     margin-top: 3px;
 }
 
-.navContainer div#categories {
+.searchByCategories {
     position: relative;
     display: inline-block;
     float: left;
@@ -43,7 +40,7 @@ body {
     min-height: 60px;
 }
 
-.dropdownbtn {
+#displayCategories {
     display: block;
     min-height: 60px;
     width: 100%;
@@ -53,155 +50,206 @@ body {
     border: none;
     font-size: 16pt;
     cursor: pointer;
+    font-family: "Source Sans", sans-serif;
 }
 
-.dropdownbtn:hover {
+#displayCategories:hover {
     background-color: #5f94dc;
     color: #000000;
 }
 
-.dropdown-content{
+.categoriesList{
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 222px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     margin: 0;
 }
 
-.dropdown-content a {
+#categorySearch {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    
+    border: none;
+    background-color: #f9f9f9;
+    min-width: 219px;
+    font-size: 12pt;
+    font-family: "Source Sans", sans-serif;
 }
 
-.dropdown-content a:hover {
+#categorySearch:hover {
     background-color: #5f94dc;
     color: #000000;
 }
 
-.navContainer div#categories:hover .dropdownbtn {
+.searchByCategories:hover #displayCategories{
     background-color: #5f94dc;
     color: #000000;
 }
 
-.navContainer div#categories:hover .dropdown-content {
+.searchByCategories:hover .categoriesList {
     display: block;
 }
 
-.navContainer input#search {
+.searchByText{
+    position: relative;
     display: inline-block;
     float: left;
-    margin: 12px 0 0 20px;
-    width: 40%;
+    margin-left: 53px;
+    margin-top: 0.5px;
+    width: 50%;
+    min-height: 60px;
+}
+
+#searchTextbox {
+    display: inline-block;
+    float: left;
+    margin: 12px 0 0 0;
+    width: 80%;
     height: 30px;
     margin-top: 10px;
     font-size: 12pt;
     text-indent: 5pt;
+    font-family: "Source Sans", sans-serif;
 }
 
-.navContainer input#searchbtn {
+#searchBtn {
     display: inline-block;
     float: left;
-    margin-top: -29px;
+    margin-top: -9.5px;
     margin-left: 5px;
     margin-right: 0;
-    width: 5%;
+    width: 9.5%;
     height: 40px;
     border: 1pt solid;
     padding:0;
     cursor: pointer;
 }
 
-.navContainer div#myProfile {
+.myProfile {
     display: inline-block;
     float: right;
     width: 7.5%;
     height: 100%;
-    margin-left: 30px;
-    margin-top: -37px;
+    margin-left: 20px;
 }
 
-.myProfilebtn {
+#myProfilebtn {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 61px;
+    height: 60px;
 }
 
-.profileOptions {
+.profileMenu {
     display: none;
-    margin: 0 0 0 -260px;
+    position: absolute;
     padding-top: 10px;
-    height: 280px;
+    min-height: 100px;
     width: 350px;
-
-}
-
-.profileOptions form {
-    width: 350px;
-}
-
-.profileOptions form fieldset legend {
-    font-size: 14pt;
     background-color: white;
+    margin-left: -265px;
 }
 
-/*.profileOptions form p {
-    
-}*/
-
-.profileOptions form fieldset p label {
-    font-size: 14pt;
+.profileMenu form {
+    width: 350px;
 }
 
-.profileOptions form fieldset p input {
+.profileMenu legend {
+    font-size: 12pt;
+    background-color: white;
+    font-family: "Source Sans", sans-serif;
+}
+
+
+.profileMenu label {
+    font-size: 12pt;
+    font-family: "Source Sans", sans-serif;
+}
+
+#userBox {
     margin-left: 10px;
     width: 200px;
-    height: 25px;
-    font-size: 12pt;
+    height: 20px;
+    font-size: 11pt;
 }
 
-.profileOptions form fieldset p input#password {
+#passwordBox {
     margin-left: 13px;
-    width: 200px;
-    height: 25px;
-    font-size: 12pt;
+    width: 201px;
+    height: 20px;
+    font-size: 11pt;
 }
 
-.profileOptions form fieldset button#logIn {
+#loginError{
+    color: red;
+}
+
+#loginBtn {
+    cursor: pointer;
+    background-color: gainsboro;
+    font-family: "Source Sans", sans-serif;
+    border-radius: 5px;
+    border: 1pt solid gainsboro;
+    height: 35px;
     width: 75px;
-    height: 30px;
-    margin-left: 75px;
+    margin-left: 65px;
     margin-right: auto;
+    font-size: 11pt;
 }
 
-.profileOptions form fieldset button#register {
+#register {
+    cursor: pointer;
+    background-color: gainsboro;
+    font-family: "Source Sans", sans-serif;
+    border-radius: 5px;
+    border: 1pt solid gainsboro;
+    height: 35px;
     width: 75px;
-    height: 30px;
-    margin-left: 25px;
+    margin-left: 40px;
     margin-right: auto;
+    font-size: 11pt;
 }
 
-.profileOptions a {
+#logoutForm{
+    width: 348px;
+    border: 1pt solid gainsboro;
+}
+
+#logoutBtn {
+    margin: 10px auto 10px 137px;
+    cursor: pointer;
+    background-color: gainsboro;
+    font-family: "Source Sans", sans-serif;
+    border-radius: 5px;
+    border: 1pt solid gainsboro;
+    height: 35px;
+    width: 75px;
+    font-size: 11pt;
+}
+
+.profileMenu a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.1);
+    font-family: "Source Sans", sans-serif;
 }
 
-.profileOptions a:hover {
+.profileMenu a:hover {
     background-color: #5f94dc;
     color: #000000;
 }
 
-.navContainer div#myProfile:hover .profileOptions {
+.myProfile:hover .profileMenu {
     display: block;
 }
+
+
 
 
 

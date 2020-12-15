@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "C:\Users\Tim\Documents\GitHub\prj1-2020-group-prj1-2020-15\implementation\index.html\databaseConnection.php"?>
 <html>
 <head>
     <title>Tickify Homepage</title>
@@ -8,6 +9,10 @@
 </head>
 <body>
     <header>
+    <?php
+        
+        ?>
+        
         <div class="wrapper">
             
             
@@ -21,7 +26,7 @@
 
                 <li id="categories">
                     <div class="dropdown">
-                        <button class="dropbtn" ><a class="categories" href="#"><img src="../img/categories1.png" height="25" width="25"></a></i></button>
+                        <button class="dropbtn" ><a class="categories" href="#"><img src="../img/categories.png" height="25" width="25"></a></i></button>
                         <div class="dropdown-content">
                             <a href="#search-theatre">Theatre</a>
                             <a href="#search-musicals">Musicals</a>
@@ -42,6 +47,9 @@
                 </li>
                 
                 <li id="profile-button">
+                    <form action="pruefform_bestellung.php" method="POST">
+
+                    
                     <div class=" profile">
                         
                         <div class="dropdown">
@@ -52,23 +60,34 @@
                                 E-Mail <input type="text" id="email"><br><br>
                                 Password <input type="password" id="password"><br><br>
                                 <button type="submit">Login</button>                                                          
-                                <button> <a href="#">Register</a></button>  
+                                <button> <a href="C:\Users\s0urce\Documents\Code\Webpage\register\register.html">Register</a></button>  
                             </div>
                         </div> 
                         
                     </div>
+                </form>
             </li>
             </ul>
         </div>
+        
     </header>
     <section class="events">
+    <div class="first_event">
         <table border="1">
             <tr class="firstRow">
-                <td>Event 1</td>
+                <td><?php
+                $eventName = $_POST["eventName"];
+                $eventNumber = $_POST["eventNumber"];
+                
+               
+                $result = pg_query($conn, "SELECT e_name FROM events");
+                echo "$result";               
+                ?>
+                </td>
                 <td>Event 2</td>
                 <td>Event 3</td>
             </tr>
-
+    </div>
             <tr class="secondRow">
                 <td>Event 4</td>
                 <td>Event 5</td>
