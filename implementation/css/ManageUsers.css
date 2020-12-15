@@ -4,19 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 03.12.2020, 15:46:57
-    Author     : lucle
+    Created on : 10.11.2020, 09:24:12
+    Author     : lucleh
 */
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 10.11.2020, 10:38:15
-    Author     : lucle
-*/
-/* Add a black background color to the top navigation bar */
+
 .topnav {
   overflow: hidden;
   background-color: #e9e9e9;
@@ -117,7 +108,7 @@ li a:hover:not(.active) {
 body {
   background-color: whitesmoke;
 }
-#Payments {
+.Users {
   outline-style: solid;
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -126,50 +117,20 @@ body {
   
 }
 
-#Payments td, #Payments th {
+.Users tr, .Users th {
   border: 1px solid #ddd;
   padding: 8px;
+  width: 350px;
 }
 
 
-#Payments tr:hover {background-color: #ddd;}
+tr:hover {background-color: #ddd;}
 
-#Payments th {
+.Users tr {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: #cccccc;
   color: white;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.tablerow
-{
- 
-    
-}
-.tablerow:hover {background-color:gray }
-.tableheader
-{
-    padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: purple;
-  color: white;   
-}

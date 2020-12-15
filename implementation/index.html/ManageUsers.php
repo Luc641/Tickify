@@ -31,7 +31,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <link rel="stylesheet" href="Manage Payments.css"/>
+        <link rel="stylesheet" href="ManageUsers.css"/>
         <title>Tickify Admin Manage Payments</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,8 +49,8 @@ and open the template in the editor.
     <?php
             
     
-    echo "<table style='border: solid 1px black;'>";          
-    echo "<tr><th>Order Number</th><th>Order Date</th><th>Payment Status</th><th>Customer Mail</th></tr>";
+    echo "<table class=\"Users\">";          
+    echo "<tr><th>Email</th><th>Online/Offline</th></tr>";
  
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -72,7 +72,7 @@ class TableRows extends RecursiveIteratorIterator {
 
 
 
-    $stmt = $conn->prepare("SELECT OrderNumber, OrderDate, PaymentStatus,CustomerMail FROM ORDERS Order By OrderDate ");
+    $stmt = $conn->prepare("SELECT c_mail, status FROM customer ");
     $stmt->execute();
 
     // set the resulting array to associative
@@ -91,6 +91,9 @@ echo "</table>";
         </main>
     </body>
 </html>
+
+
+
 
 
 
