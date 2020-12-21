@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-
 <?php 
-    
-    include 'databaseConnection.php';
-    include "loginFunctions.php";
+    include ("functions.php");
 ?>
+<!DOCTYPE html>
 
 <html>
     
@@ -13,7 +10,7 @@
     </head>
     
     <body>
-        
+
         <nav class="navigationBar">
             
             <div class="container">
@@ -24,13 +21,15 @@
                     
                 </div>
                 
+                <?php if($_SESSION["displaySearchBar"] || (!isset($_SESSION["displaySearchBar"]))){ ?>
+                
                 <div class="searchByCategories">
                     
                     <input type="button" id="displayCategories" value="Categories">
                     
                     <div class="categoriesList">
                         
-                        <form name="selectCategory" method="get" action=<?php $link ?>>
+                        <form name="selectCategory" method="get" action="searchWindow.php">
                             
                             <input type="submit" id="categorySearch" name="categorySearch" value="Cinema & Theatre"> <br>
                             <input type="submit" id="categorySearch" name="categorySearch" value="Concerts & Festivals"> <br>
@@ -46,7 +45,7 @@
                 
                 <div class="searchByText">
                     
-                    <form name="searchText" method="get" action=<?php $link ?>>
+                    <form name="searchText" method="get" action="searchWindow.php">
                             
                         <input type="text" id="searchTextbox" name="searchText" placeholder="Enter keyword"> <br>
 
@@ -56,48 +55,21 @@
                     
                 </div>
                 
+                <?php } else { ?>
+                    
+                <input type="text" id="windowTitle" readonly="readonly" value="<?php echo htmlspecialchars($_SESSION["windowTitle"]); ?>">
+                
+                <?php } ?>
+                
                 <div class="myProfile">
                     
                     <button id="myProfilebtn"><img src="../img/myprofile.png" width="65" height="50" alt="profile" ></button>
                    
                     <div class="profileMenu">
                        
-                        <?php
-    
-                            $link = $_SERVER['REQUEST_URI']; //get the link of actual page
-
-                            $displayForm = true;
-                            
-                            unset($_POST["loginError"]);
-
-                            if (isset($_POST["loginBtn"])){ //trying to log in
-
-                                //Get values from the form
-                                $user = $_POST["user"];
-                                $password = $_POST["password"];
-                                $loginInfo = array();
-                                
-                                array_push($loginInfo, customerQuery($user, $conn));
-                                array_push($loginInfo, organizerQuery($user, $conn));
-                                array_push($loginInfo, adminQuery($user, $conn));
-
-                                $displayForm = login($loginInfo, $password, $user);
-
-                            }
-
-                            if (isset($_POST["logoutBtn"])){ //log out case
-                                $displayForm = logout();
-                            }
-                            
-                        ?>
+                        <?php if ($_SESSION["displayForm"]){ // Show log in form ?>
                        
-                        <?php
-
-                            if ($displayForm){ // Show log in form
-
-                        ?>
-                       
-                        <form name="login" method="post" action=<?php $link ?>>
+                        <form name="login" method="post" action="">
 
                             <fieldset>
 
@@ -113,16 +85,14 @@
                                     <label for="password">Password:</label>
                                     <input type="password" id="passwordBox" name="password">
                                 </p>
-
-                                <input type="hidden" name="userType" value="">
                                 
                                 <?php if (isset($_POST["loginError"])) { ?> 
                                 
-                                <p id="loginError"> <?php echo $_POST["loginError"]; ?> </p> 
+                                <p id="loginError"><?php echo $_POST["loginError"]; ?></p> 
                                 
                                 <?php } ?>
 
-                                <input type="submit" name="loginBtn" id="loginBtn" value="Log In">
+                                <input type="submit" name="loginButton" id="loginBtn" value="Log In">
                                 
                                 <input type="button" name="registerBtn" id="register" value="Register" >
 
@@ -130,23 +100,15 @@
 
                         </form>
                        
-                        <?php
-
-                            } else { // Show log out form/button
-
-                        ?>
+                        <?php } else { // Show log out form/button ?>
                        
-                        <form name="logout" method="post" id="logoutForm" action=<?php $link ?>>
+                        <form name="logout" method="post" id="logoutForm" action="homepage.php">
                             
-                            <input type="submit" name="logoutBtn" id="logoutBtn" value="Log Out">
+                            <input type="submit" name="logoutButton" id="logoutBtn" value="Log Out">
 
                         </form>
                         
-                        <?php
-
-                            }
-
-                        ?>
+                        <?php } ?>
                        
                         <a href=""> My Profile </a>
                        
@@ -159,5 +121,5 @@
         </nav>
         
     </body>
-    
+
 </html>

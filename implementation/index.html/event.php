@@ -1,6 +1,8 @@
+<?php     
+    include 'databaseConnection.php';
+    include 'navigation.php';
+?>
 <!DOCTYPE html>
-
-<?php include 'databaseConnection.php';?>
 
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -10,29 +12,30 @@ and open the template in the editor.
 <html>
     <head>
         <title>Event window</title>
+        <link rel="icon" href="../img/TickifyLogo.png" type="image/icon type">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/event.css"><!-- link to stylesheet -->
     </head>
     
     <body>
-        
-        <?php include 'navigation.php';?>
-        
+
         <header>
 
             <?php
             
-                $eventNumber = 3;
+                $eventNumber = intval($_GET["eventNumber"]);
             
                 $event = getEventInfo($eventNumber, $conn);
                 
                 list($eventName, $eventCategory, $description, $eventLocation, $eventTime, $filepath) = $event;
+                
+                $filepath = "../img/" . $filepath;
 
             ?>
             
-            <p> <?php echo $eventCategory; ?> </p>
-            <h1> <?php echo $eventName; ?> </h1>
+            <p><?php echo $eventCategory; ?></p>
+            <h1><?php echo $eventName; ?></h1>
             
 	</header><!-- end of header -->
         
@@ -40,7 +43,7 @@ and open the template in the editor.
             
             <article id="eventGraph">
                 
-                <img src="../img/badmintonEvent.jpg" alt="Event">
+                <img src="<?php echo $filepath; ?>" alt="Event">
                 
             </article><!<!-- end of division -->
             
@@ -48,7 +51,7 @@ and open the template in the editor.
                 
                 <h1>About the event</h1>
                 
-                <p> <?php echo $description; ?> </p>
+                <p><?php echo $description; ?></p>
                 
             </div><!-- end of division -->
             
@@ -71,17 +74,17 @@ and open the template in the editor.
                 
                 ?>
                 
-                <p id="eventMonth"> <?php echo $monthString; ?></p>
-                <p> <?php echo $day; ?></p>
-                <p> <?php echo $year; ?></p>
+                <p id="eventMonth"><?php echo $monthString; ?></p>
+                <p><?php echo $day; ?></p>
+                <p><?php echo $year; ?></p>
                 
             </section>
             
             <section class="eventLocation">
 
-                <p id="eventTime"> <?php echo "$hour : $minutes"; ?> </p>
-                <p id="eventPlace"> <?php echo $eventLocation; ?> </p>
-                <p> <?php echo $eventName; ?> </p>
+                <p id="eventTime"><?php echo "$hour : $minutes"; ?></p>
+                <p id="eventPlace"><?php echo $eventLocation; ?></p>
+                <p><?php echo $eventName; ?></p>
                       
             </section>
             
@@ -89,14 +92,11 @@ and open the template in the editor.
                 
                 <form action="ticket.php" method="post">
                     
-                    <?php
+                    <?php $eventInfo = eventNameFormat($eventName); ?>
                     
-                        $eventInfo = eventNameFormat($eventName);
-                    
-                    ?>
-                    
-                    <input id="eventNumber" name="eventNumber" type="hidden" value=<?php echo $eventNumber;?>>
-                    <input id="eventName" name="eventName" type="hidden" value=<?php echo $eventInfo;?>>
+                    <input name="eventNumber" type="hidden" value=<?php echo $eventNumber;?>>
+                    <input name="eventName" type="hidden" value=<?php echo $eventInfo;?>>
+                    <input name="eventPhoto" type="hidden" value=<?php echo $filepath;?>>
                     
                     <?php if((isset($_SESSION["user"])) and $_SESSION["userType"] == 0) { ?>
                     

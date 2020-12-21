@@ -1,11 +1,8 @@
+<?php 
+    include 'databaseConnection.php';
+    include 'navigation.php';
+?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-<?php include 'databaseConnection.php';?>
 
 <html>
     <head>
@@ -17,15 +14,14 @@ and open the template in the editor.
     </head>
     
     <body>
-        
-        <?php include 'navigation.php';?>
-        
+
         <header>
             
             <?php
 
                 $eventName = eventNameFormat($_POST["eventName"]);
                 $eventNumber = $_POST["eventNumber"];
+                $filepath = $_POST["eventPhoto"];
                 
                 list($categories, $prices) = getTicketInfo($eventNumber, $conn);
                 
@@ -36,7 +32,7 @@ and open the template in the editor.
               
             ?>
             
-            <img src="../img/badmintonEvent.jpg" alt="Event" >
+            <img src="<?php echo $filepath; ?>" alt="Event" >
             
             <h1> <?php echo $eventName; ?> </h1>
             
@@ -70,6 +66,9 @@ and open the template in the editor.
                     if ($ticketToBuy > 10) {
                         $allowedToBuy = 10;
                     }
+                    
+                    $categoryName = explode(" ", $category);
+                    $categoryName = implode("%%%", $categoryName);
                 ?>
                 
                 <p> <?php echo "Price: ". $prices[$category] . "€"; ?> </p>
@@ -79,11 +78,11 @@ and open the template in the editor.
             
             <div class="ticketQuantity">
                 
-                <form action="test.php" method="POST">
-                    <input type="hidden" name="eventCategory" value=<?php echo $category;?>>
-                    <input type="hidden" name="eventNumber" value=<?php echo $eventNumber;?>>
-                    <input type="hidden" name="ticketPrice" value=<?php echo $prices[$category];?>>
-                    <input type="number" id="ticketNr" name=<?php echo $category; ?> placeholder="0" min="0" max=<?php echo $allowedToBuy; ?> >
+                <form action="toPay.php" method="POST">
+                    <input type="hidden" name="eventCategory" value="<?php echo $categoryName;?>">
+                    <input type="hidden" name="eventNumber" value="<?php echo $eventNumber;?>">
+                    <input type="hidden" name="ticketPrice" value="<?php echo $prices[$category];?>">
+                    <input type="number" id="ticketNr" name="ticketNr" placeholder="0" min="0" max="<?php echo $allowedToBuy; ?>" >
                     <input type="submit" id="paymentBtn" value ="Go to Payment" >
                 </form>  
                 
