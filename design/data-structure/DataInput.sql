@@ -360,4 +360,3 @@ INSERT INTO TICKET (ID, EventNumber, Price, TicketCategory, Order_Number) Values
 	( 298, 5, 9.75, 'Balcony', null ),
 	( 299, 5, 9.75, 'Balcony', null ),
 	( 300, 5, 9.75, 'Balcony', null );
-	(124, 3, 59.0, 'c', null);
