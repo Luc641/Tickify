@@ -1,16 +1,14 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
+
 /* 
     Created on : 10.11.2020, 09:24:12
     Author     : lucleh
 */
-
+body {
+  background-image: url("BackgroundPicture.jpg");
+}
 .topnav {
   overflow: hidden;
-  background-color: #e9e9e9;
+  background-color: #5CAEE3;
 }
 
 /* Style the links inside the navigation bar */
@@ -26,13 +24,13 @@ and open the template in the editor.
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: whitesmoke;
+  background-color: #270A5E;
   color: black;
 }
 
 /* Style the "active" element to highlight the current page */
 .topnav a.active {
-  background-color: darkblue;
+  background-color: #EA782D;
   color: white;
 }
 
@@ -75,45 +73,14 @@ and open the template in the editor.
   background: #ccc;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
 
-li {
-  text-align: center;
-  border-right:1px solid #bbb;
-}
 
-li:last-child {
-  border-right: none;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 24px;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-body {
-  background-color: whitesmoke;
-}
-.Users {
+.Users  {
   outline-style: solid;
   font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
   width: 100%;
-  background-color: red;
+  background-color:  white;
+  
   
 }
 
@@ -124,13 +91,14 @@ body {
 }
 
 
-tr:hover {background-color: #ddd;}
+.Users tr:hover {background-color: #ddd;}
+.Users tr:nth-child(even){background-color: #f2f2f2}
 
 .Users tr {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #cccccc;
-  color: white;
+  background-color: white;
+  color: black;
 }
 

@@ -24,11 +24,7 @@
     }
         
 ?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <link rel="stylesheet" href="Manage Payments.css"/>
@@ -41,47 +37,29 @@ and open the template in the editor.
              <div class="topnav">
   <a class="active" href="#home">Home</a>
   <a href="AdminProfile.php">My Profile</a>
-  <div class="search-container">
-        <input type="text" placeholder="Search..">
-  </div>
 </div> 
             
     <?php
             
     
-    echo "<table style='border: solid 1px black;'>";          
+    echo "<table class=\"Payments\">";          
     echo "<tr><th>Order Number</th><th>Order Date</th><th>Payment Status</th><th>Customer Mail</th></tr>";
  
-class TableRows extends RecursiveIteratorIterator {
-    function __construct($it) {
-        parent::__construct($it, self::LEAVES_ONLY);
-    }
-
-    function current() {
-        return "<td style='width: 250px; border: 1px solid black;'>" . parent::current(). "</td>";
-    }
-
-    function beginChildren() {
-        echo "<tr>";
-    }
-
-    function endChildren() {
-        echo "</tr>" . "\n";
-    }
-}
-
-
-
-    $stmt = $conn->prepare("SELECT OrderNumber, OrderDate, PaymentStatus,CustomerMail FROM ORDERS Order By OrderDate ");
+    $stmt = $conn->prepare("SELECT ordernumber, orderdate, paymentstatus,customermail FROM orders Order By orderdate DESC ");
     $stmt->execute();
 
-    // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-        echo $v;
+foreach ($stmt->fetchAll() as $row) {
+        $fmt = ($row['paymentstatus'] == 1) ? "Paid" : "<a href=\"Paymentpaid.php?ordernumber=${row['ordernumber']}\" > Not Paid </a>";
+         echo <<<HTML
+            <tr>
+                <td>${row['ordernumber']}</td>
+                <td>${row['orderdate']}</td>
+                <td>${fmt}</td>
+                <td>${row['customermail']}</td>
+            </tr>
+        HTML;
     }
-
 
 $conn = null;
 echo "</table>";
