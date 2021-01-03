@@ -31,7 +31,7 @@ create table ORDERS (
 );
 
 create table EVENTS(
-	EventNr int not null primary key,
+	EventNr serial not null primary key,
 	E_Name varchar (50) not null,
 	EventCategory varchar(30) not null,
 	Description varchar(6000),

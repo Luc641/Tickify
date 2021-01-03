@@ -1,0 +1,49 @@
+body {
+
+  font-family: Source Sans Pro, Helvetica, sans-serif;
+  position: absolute;
+  text-align: center;
+  background-color: #fbf0de;
+  margin: 0 auto;
+  max-width: 700px;
+}
+h3, h1{
+   color: #391d48; 
+}
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 10px;
+}
+#file{
+    background-color: #f1e8ef;
+    border: none;
+  color: #391d48;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.btn:hover {
+  background-color: RoyalBlue;
+} 
+
+label{
+    color: #391d48;
+}
+p{
+    font-size: 18px;
+    color: #391d48;
+}
+
+.pl {
+    background-color: #f1e8ef;
+    color: #391d48;
+    width: 32%;
+    text-align: center;
+
+}
