@@ -32,7 +32,7 @@ and open the template in the editor.
 <html>
     <head>
         <link rel="stylesheet" href="ManageUsers.css"/>
-        <title>Tickify Admin Manage Payments</title>
+        <title>Tickify Admin Manage Users</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -41,51 +41,37 @@ and open the template in the editor.
              <div class="topnav">
   <a class="active" href="#home">Home</a>
   <a href="AdminProfile.php">My Profile</a>
-  <div class="search-container">
-        <input type="text" placeholder="Search..">
-  </div>
 </div> 
             
     <?php
             
     
     echo "<table class=\"Users\">";          
-    echo "<tr><th>Email</th><th>Online/Offline</th></tr>";
- 
-class TableRows extends RecursiveIteratorIterator {
-    function __construct($it) {
-        parent::__construct($it, self::LEAVES_ONLY);
-    }
-
-    function current() {
-        return "<td style='width: 250px; border: 1px solid black;'>" . parent::current(). "</td>";
-    }
-
-    function beginChildren() {
-        echo "<tr>";
-    }
-
-    function endChildren() {
-        echo "</tr>" . "\n";
-    }
-}
-
-
-
-    $stmt = $conn->prepare("SELECT c_mail, status FROM customer ");
+    echo "<tr><th>Email</th><th>Online/Offline</th><th>Deactivate</th></tr>";
+    
+    $stmt = $conn->prepare("SELECT c_mail, status FROM customer ORDER BY c_mail DESC");
     $stmt->execute();
 
     // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-        echo $v;
+    foreach ($stmt->fetchAll() as $row) {
+        $fmt = ($row['status'] == 0) ? "Deactivated!" : "<a href=\"deactivateaccount.php?email=${row['c_mail']}\" > Deactivate </a>";
+        $on = ($row["status"] == 1) ? "Online" : "Offline";
+         echo <<<HTML
+            <tr>
+                <td>${row['c_mail']}</td>
+                <td>${on}</td>
+                <td>${fmt}</td>
+            </tr>
+        HTML;
     }
 
-
 $conn = null;
+
 echo "</table>";
+
 ?>
+            
                  
 
         </main>
