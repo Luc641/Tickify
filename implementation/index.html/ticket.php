@@ -47,11 +47,11 @@
             
         ?>
         
-        <div class="category">
+        <article class="category">
             
             <h1> <?php echo $category; ?> </h1>
             
-            <div class="categoryDescription">
+            <section class="categoryDescription">
                 
                 <?php
                     
@@ -74,9 +74,9 @@
                 <p> <?php echo "Price: ". $prices[$category] . "€"; ?> </p>
                 <p> <?php echo "Available tickets: ". $ticketToBuy; ?> </p>
                 
-            </div>
+            </section>
             
-            <div class="ticketQuantity">
+            <section class="ticketQuantity">
                 
                 <form action="toPay.php" method="POST">
                     <input type="hidden" name="eventCategory" value="<?php echo $categoryName;?>">
@@ -86,9 +86,9 @@
                     <input type="submit" id="paymentBtn" value ="Go to Payment" >
                 </form>  
                 
-            </div><!-- end of division -->
+            </section><!-- end of division -->
             
-        </div><!-- end of division -->
+        </article><!-- end of division -->
         
         <?php } ?>
 
@@ -120,6 +120,8 @@
         //Execute the previous defined statement
         $stmt->execute([$eventNumber]);
 
+        /*Obtain the result as an array indexed by number of 
+          columns or by attribute name*/
         $result = $stmt->setFetchMode(PDO::FETCH_BOTH);
 
         $categories = array();
@@ -127,9 +129,11 @@
 
         // Save every obtained data into an array - $categories 
         // Save tickets price with key => value array
+        // while for treating more than one row from the query
         while ($row = $stmt->fetch()) {
             array_push($categories, $row[0]);
-            $prices[$row[0]] = number_format($row[1], 2); // float number with 2 decimals
+            // float number with 2 decimals
+            $prices[$row[0]] = number_format($row[1], 2); 
         }
         
         $ticketInfo = array($categories, $prices);
@@ -149,28 +153,20 @@
         //Execute the previous defined statement
         $stmt->execute([$eventNumber]);
 
+        /* Obtain the result as an array indexed by number of 
+           columns or by attribute name */
         $result = $stmt->setFetchMode(PDO::FETCH_BOTH);
 
         $availableTickets = array();
 
         // Save every obtained data into an array - $categories 
         // Save tickets available with key => value array
+        // while for treating more than one row from the query
         while ($row = $stmt->fetch()) {
             $availableTickets[$row[0]] = $row[1];
         }
         
         return $availableTickets;
     }
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-    
 ?>
 

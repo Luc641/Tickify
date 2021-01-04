@@ -1,7 +1,3 @@
-
-
-<!-- CONNECTION TO OUR DATABASE -->
-
 <?php //from the Project slides
 
         // Declare DBS connection parameters
@@ -23,5 +19,5 @@
         } catch (PDOException $e){ // report error message 
             echo $e->getMessage(); 
         }
-        
+  
 ?>

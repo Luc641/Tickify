@@ -37,23 +37,23 @@ and open the template in the editor.
             <p><?php echo $eventCategory; ?></p>
             <h1><?php echo $eventName; ?></h1>
             
-	</header><!-- end of header -->
+	    </header><!-- end of header -->
         
         <div class="eventDetails">
             
-            <article id="eventGraph">
+            <section id="eventGraph">
                 
                 <img src="<?php echo $filepath; ?>" alt="Event">
                 
-            </article><!<!-- end of division -->
+            </section><!<!-- end of division -->
             
-            <div id="eventDescription">
+            <section id="eventDescription">
                 
                 <h1>About the event</h1>
                 
                 <p><?php echo $description; ?></p>
                 
-            </div><!-- end of division -->
+            </section><!-- end of division -->
             
         </div><!<!-- end of division -->
         
@@ -139,13 +139,13 @@ and open the template in the editor.
         //Execute the previous defined statement
         $stmt->execute([$eventNumber]);
 
-        //
+        //Obtain the result as an array indexed by number of columns
         $result = $stmt->setFetchMode(PDO::FETCH_NUM);
 
+        //Obtain the results of the query (Only none or one row expected)
         $event = $stmt->fetch();
         
         return $event;
-        
     }
     
     function monthToString($monthNumber){
@@ -191,5 +191,3 @@ and open the template in the editor.
     }
 
 ?>
-
-
