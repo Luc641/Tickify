@@ -1,14 +1,18 @@
+<?php include 'navigation.php';?>
+<?php include 'databaseConnection.php';?>
+
 <!DOCTYPE html>
 
-<?php include 'databaseConnection.php';?>
+
+
 
 <html>
 
     <head>
 
-    <link rel="stylesheet" type="text/css" href="payment.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/payment&register.css" media="screen" />
 
-    <?php include 'navigation.php';?>
+    <h1> Payment </h1>
 
     </head>
 
@@ -17,24 +21,26 @@
         
         <div> 
             
-            <h1> Payment </h1>
+            
             
             
             <hr>
-
+            <div>
             <input type="radio" name="payment" <?php if (isset($payment) && $payment=="VISA") echo "checked";?> value="VISA">Visa
             <input type="radio" name="payment" <?php if (isset($payment) && $payment=="MAESTRO") echo "checked";?> value="MAESTRO">Maestro
             <input type="radio" name="payment" <?php if (isset($payment) && $payment=="MASTERCARD") echo "checked";?> value="MASTERCARD">MasterCard
             <input type="radio" name="payment" <?php if (isset($payment) && $payment=="AMERICAN EXPRESS") echo "checked";?> value="AMERICAN EXPRESS">American Express
             <input type="radio" name="payment" <?php if (isset($payment) && $payment=="PAYPAL") echo "checked";?> value="PAYPAL">PayPal
             <input type="radio" name="payment" <?php if (isset($payment) && $payment=="BANK TRANSFER") echo "checked";?> value="BANK TRANSFER">Bank Transfer            
-
+            </div>
             
+            <div>
             <label for="aname"> <b> Account Name: </b></label>
             <input type="text" placeholder="Enter your account name" name="aname" id="aname" required>
             
+            
             <label for="anumb"> <b> Account Number: </b></label>
-            <input type="number" placeholder="Enter your account number" name="anumb" id ="anumb" required>
+            <input type="text" placeholder="Enter your account number" name="anumb" id ="anumb" required>
             
             <label for="bname"> <b> Bank Name: </b></label>
             <input type="text" placeholder="Enter bank name" name="bname" id="bname" required>
@@ -50,7 +56,7 @@
             
             <button type="submit" class="paymentbtn" formmethod="post"> Confirm </button>
             <button type="button" class="cancelbtn"> Cancel </button>
-            
+            </div>
             
             </div>
             

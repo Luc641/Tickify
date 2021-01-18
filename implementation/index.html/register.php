@@ -8,7 +8,7 @@
         
         <form> 
             
-            <link rel="stylesheet" type="text/css" href="register.css" media="screen" />
+            <link rel="stylesheet" type="text/css" href="payment&register.css" media="screen" />
         
         <div> 
             
