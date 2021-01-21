@@ -78,7 +78,7 @@
             
             <section class="ticketQuantity">
                 
-                <form action="toPay.php" method="POST">
+                <form action="payment.php" method="POST">
                     <input type="hidden" name="eventCategory" value="<?php echo $categoryName;?>">
                     <input type="hidden" name="eventNumber" value="<?php echo $eventNumber;?>">
                     <input type="hidden" name="ticketPrice" value="<?php echo $prices[$category];?>">

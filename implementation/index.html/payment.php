@@ -17,13 +17,28 @@
     </head>
 
 
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form method="post" action="confirmation.php">
         
         <div> 
             
             
-            
-            
+        <?php
+
+            $eventCategory = $_POST["eventCategory"];
+            $eventCategory = explode("%%%", $eventCategory);
+            $eventCategory = implode(" ", $eventCategory);
+
+            $ticketNr = $_POST["ticketNr"];
+            $eventNumber = $_POST["eventNumber"];
+            $ticketPrice = $_POST["ticketPrice"];
+ 
+        ?>
+
+            <input type="text" name="eventName" value="<?php echo $eventName;?>" readonly="true">
+            <input type="text" name="eventCategory" value="<?php echo $eventCategory;?>" readonly="true">
+            <input type="text" name="ticketNr" value="<?php echo $ticketNr;?>" readonly="true">
+            <input type="text" name="ticketPrice" value="<?php echo ($ticketPrice * $ticketNr) ."€";?>" readonly="true">
+
             <hr>
             <div>
             <input type="radio" name="payment" <?php if (isset($payment) && $payment=="VISA") echo "checked";?> value="VISA">Visa
@@ -54,27 +69,21 @@
             <label for="bic"> <b> BIC / Swift </b></label>
             <input type="text" placeholder="Enter bank name" name="bic" id="bic" required>
             
+            </div>
+
+            <input type="hidden" name="eventCategory" value="<?php echo $eventCategory;?>" readonly="true">
+            <input type="hidden" name="ticketNr" value="<?php echo $ticketNr;?>" readonly="true">
+            <input type="hidden" name="eventNumber" value="<?php echo $eventNumber;?>" readonly="true">
+        
+
             <button type="submit" class="paymentbtn" formmethod="post"> Confirm </button>
             <button type="button" class="cancelbtn"> Cancel </button>
-            </div>
             
             </div>
             
         </form>
 
-        <?php 
-
-            if(isset($_POST['submit'])){
-
-                $ANAME = $_POST['aname'];
-                $ANUMB = $_POST['anumb'];
-                $BNAME = $_POST['bname'];
-                $SCODE = $_POST['scode'];
-                $IBAN = $_POST['iban'];
-                $BIC = $_POST['bic'];
-            }
-            
-        ?>
+    
 
         <div>
             

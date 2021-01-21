@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<?php include 'navigation.php'?>
 <?php include 'databaseConnection.php'?>
 
 
@@ -17,6 +17,7 @@
             <p> Fill out this form to create a Tickify account.</p>
             
             <hr>
+
             
             <label for="email"> <b> E-Mail: </b></label>
             <input type="text" placeholder="Enter E-Mail Address" name="email" id ="email" required>
