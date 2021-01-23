@@ -3,9 +3,6 @@
 
 <!DOCTYPE html>
 
-
-
-
 <html>
 
     <head>
@@ -20,23 +17,30 @@
         <form method="post" action="confirmation.php">
         
         <div> 
-            
+        
+            <p> To pay </p>
             
         <?php
 
             $eventCategory = $_POST["eventCategory"];
-            $eventCategory = explode("%%%", $eventCategory);
-            $eventCategory = implode(" ", $eventCategory);
+            $eventCategory = nameFormat($eventCategory);
+            $eventName = nameFormat($_POST["eventName"]);
 
             $ticketNr = $_POST["ticketNr"];
             $eventNumber = $_POST["eventNumber"];
             $ticketPrice = $_POST["ticketPrice"];
  
         ?>
-
+            <label>Name of the event</label>
             <input type="text" name="eventName" value="<?php echo $eventName;?>" readonly="true">
+            
+            <label>Name of the ticket's category</label>
             <input type="text" name="eventCategory" value="<?php echo $eventCategory;?>" readonly="true">
+            
+            <label>Numbers of tickets to buy</label>
             <input type="text" name="ticketNr" value="<?php echo $ticketNr;?>" readonly="true">
+            
+            <label>Total price</label>
             <input type="text" name="ticketPrice" value="<?php echo ($ticketPrice * $ticketNr) ."€";?>" readonly="true">
 
             <hr>
@@ -93,3 +97,22 @@
 
 
 </html>
+
+<?php
+
+function nameFormat($name){
+        
+        $name = explode('%%%', $name);
+        $name = implode(' ', $name);
+        
+        return $name;
+    }
+    
+    function prepareToSend($string){
+        
+        $string = explode(' ', $string);
+        $string = implode('%%%', $string);
+        
+        return $string;
+    }
+?>

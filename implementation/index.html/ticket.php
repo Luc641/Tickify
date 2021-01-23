@@ -19,7 +19,7 @@
             
             <?php
 
-                $eventName = eventNameFormat($_POST["eventName"]);
+                $eventName = nameFormat($_POST["eventName"]);
                 $eventNumber = $_POST["eventNumber"];
                 $filepath = $_POST["eventPhoto"];
                 
@@ -67,8 +67,8 @@
                         $allowedToBuy = 10;
                     }
                     
-                    $categoryName = explode(" ", $category);
-                    $categoryName = implode("%%%", $categoryName);
+                    $categoryName = prepareToSend($category);
+                    $nameOfEvent = prepareToSend($eventName);
                 ?>
                 
                 <p> <?php echo "Price: ". $prices[$category] . "€"; ?> </p>
@@ -82,6 +82,7 @@
                     <input type="hidden" name="eventCategory" value="<?php echo $categoryName;?>">
                     <input type="hidden" name="eventNumber" value="<?php echo $eventNumber;?>">
                     <input type="hidden" name="ticketPrice" value="<?php echo $prices[$category];?>">
+                    <input type="hidden" name="eventName" value="<?php echo $nameOfEvent;?>">
                     <input type="number" id="ticketNr" name="ticketNr" placeholder="0" min="0" max="<?php echo $allowedToBuy; ?>" >
                     <input type="submit" id="paymentBtn" value ="Go to Payment" >
                 </form>  
@@ -100,12 +101,20 @@
 
 <?php
 
-    function eventNameFormat($name){
+    function nameFormat($name){
         
-        $eventName = explode('%%%', $name);
-        $eventName = implode(' ', $eventName);
+        $name = explode('%%%', $name);
+        $name = implode(' ', $name);
         
-        return $eventName;
+        return $name;
+    }
+    
+    function prepareToSend($string){
+        
+        $string = explode(' ', $string);
+        $string = implode('%%%', $string);
+        
+        return $string;
     }
     
     function getTicketInfo($eventNumber, $conn){

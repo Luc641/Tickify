@@ -94,10 +94,16 @@
 
                                 <input type="submit" name="loginButton" id="loginBtn" value="Log In">
                                 
-                                <input type="button" name="registerBtn" id="register" value="Register" >
+                                
 
                             </fieldset>
 
+                        </form>
+                        
+                        <form name="register" action="register.php">
+                            
+                            <input type="submit" name="registerBtn" id="register" value="Register" >
+                            
                         </form>
                        
                         <?php } else { // Show log out form/button ?>
